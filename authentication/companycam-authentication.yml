@@ -1,0 +1,46 @@
+generated: '2026-07-18'
+method: searched
+source: openapi/companycam-openapi-original.yml
+docs: https://docs.companycam.com/docs/getting-started
+summary:
+  types:
+  - http
+  - oauth2
+  api_key_in: []
+  oauth2_flows:
+  - authorizationCode
+  bearer: true
+notes: >-
+  Two token paths: (1) a personal access token generated in the CompanyCam app
+  (https://app.companycam.com/access_tokens), sent as an HTTP Bearer token — this
+  is the only scheme declared in the published OpenAPI; (2) full OAuth 2.0
+  authorization-code (with refresh tokens and PKCE S256) for partner integrations,
+  documented separately and advertised at the RFC 8414 authorization-server
+  metadata endpoint. API access requires a Pro, Premium, or Elite plan.
+schemes:
+- name: BearerAuth
+  type: http
+  scheme: bearer
+  description: >-
+    Bearer <API_TOKEN> in the Authorization header. Tokens are minted in-app at
+    https://app.companycam.com/access_tokens or issued via the OAuth flow.
+  sources:
+  - openapi/companycam-openapi-original.yml
+- name: OAuth2
+  type: oauth2
+  description: >-
+    Authorization-code grant for confidential partner clients. Scopes are
+    space-delimited (read/write/destroy plus per-resource resource:action
+    scopes). See scopes/companycam-scopes.yml.
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://app.companycam.com/oauth/authorize
+    tokenUrl: https://app.companycam.com/oauth/token
+    refreshUrl: https://app.companycam.com/oauth/token
+  pkce: S256
+  revocation_endpoint: https://app.companycam.com/oauth/revoke
+  introspection_endpoint: https://app.companycam.com/oauth/introspect
+  registration_endpoint: https://app.companycam.com/oauth/register
+  sources:
+  - https://app.companycam.com/.well-known/oauth-authorization-server
+  - https://docs.companycam.com/docs/oauth
