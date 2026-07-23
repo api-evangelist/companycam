@@ -1,0 +1,140 @@
+openapi: 3.0.0
+info:
+  version: v2
+  title: Core Checklists Company API
+servers:
+- url: https://api.companycam.com/v2
+security:
+- BearerAuth: []
+tags:
+- name: Company
+paths:
+  /company:
+    get:
+      summary: Retrieve Company
+      operationId: getCurrentCompany
+      tags:
+      - Company
+      responses:
+        '200':
+          description: Details about the current company
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Company'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                errors:
+                - Bad Request
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                errors:
+                - Record not found
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                errors:
+                - An unexpected error occured
+components:
+  schemas:
+    ImageURI:
+      type: object
+      required:
+      - type
+      - uri
+      properties:
+        type:
+          type: string
+        uri:
+          type: string
+        url:
+          type: string
+      example:
+        type: original
+        uri: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
+        url: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
+    Address:
+      type: object
+      properties:
+        street_address_1:
+          type: string
+          nullable: true
+        street_address_2:
+          type: string
+          nullable: true
+        city:
+          type: string
+          nullable: true
+        state:
+          type: string
+          nullable: true
+        postal_code:
+          type: string
+          nullable: true
+        country:
+          type: string
+          nullable: true
+      example:
+        street_address_1: 808 P St
+        city: Lincoln
+        state: NE
+        postal_code: '68508'
+        country: US
+    Error:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+          example:
+          - Record not found
+    Company:
+      type: object
+      required:
+      - id
+      - name
+      properties:
+        id:
+          type: string
+          description: The Company's unique ID
+          example: '2789583992'
+        name:
+          type: string
+          description: The name of the company
+          example: Psych
+        status:
+          type: string
+          description: Indicates the status of the Company.
+          enum:
+          - active
+          - cancelled
+          - deleted
+          example: active
+        address:
+          type: string
+          description: The address of the company
+          $ref: '#/components/schemas/Address'
+        logo:
+          type: array
+          description: A list of images for the different variants of the logo
+          items:
+            $ref: '#/components/schemas/ImageURI'
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer

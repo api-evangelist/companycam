@@ -1,0 +1,822 @@
+openapi: 3.0.0
+info:
+  version: v2
+  title: Core Checklists Photos API
+servers:
+- url: https://api.companycam.com/v2
+security:
+- BearerAuth: []
+tags:
+- name: Photos
+paths:
+  /photos:
+    get:
+      summary: List Photos
+      operationId: listPhotos
+      tags:
+      - Photos
+      parameters:
+      - name: page
+        in: query
+        description: Page number for offset-based pagination. Cannot be used with cursor pagination (after/before params)
+        schema:
+          type: integer
+          format: int32
+      - name: per_page
+        in: query
+        description: Number of results per page. Default 50, maximum 100
+        schema:
+          type: integer
+          format: int32
+          default: 50
+          maximum: 100
+      - name: after
+        in: query
+        description: Cursor for forward pagination. Comes from X-Next-Cursor header value. Returns results after this cursor position. Cannot be used with 'before' or 'page'
+        schema:
+          type: string
+      - name: before
+        in: query
+        description: Cursor for backward pagination. Comes from X-Prev-Cursor header value. Returns results before this cursor position. Cannot be used with 'after' or 'page'
+        schema:
+          type: string
+      - name: start_date
+        in: query
+        description: A unix timestamp to return photos captured on or after the provided value
+        schema:
+          type: string
+      - name: end_date
+        in: query
+        description: A unix timestamp to return photos captured on or before the provided value
+        schema:
+          type: string
+      - name: project_ids
+        in: query
+        description: Filter results to include photos from one of these project IDs
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int64
+      - name: user_ids
+        in: query
+        description: Filter results to include photos captured by one of these user IDs
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int64
+      - name: group_ids
+        in: query
+        description: Filter results to include photos captured by users in one of these group IDs
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int64
+      - name: tag_ids
+        in: query
+        description: Filter results to include photos with one of these tag IDs
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: List of photos sorted by captured date descending
+          headers:
+            X-Next-Cursor:
+              description: Cursor that can be used as an 'after' param to fetch the next page of results. Empty if no more results
+              schema:
+                type: string
+            X-Prev-Cursor:
+              description: Cursor that can be used as a 'before' param to fetch the previous page of results. Empty if no previous results
+              schema:
+                type: string
+            X-Has-Next:
+              description: Indicates whether more results exist after the current page
+              schema:
+                type: string
+                enum:
+                - 'true'
+                - 'false'
+            X-Has-Prev:
+              description: Indicates whether results exist before the current page
+              schema:
+                type: string
+                enum:
+                - 'true'
+                - 'false'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Photo'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                both_cursors:
+                  summary: Both cursors provided
+                  value:
+                    errors:
+                    - Cannot use both 'after' and 'before' parameters
+                mixed_pagination:
+                  summary: Mixed pagination types
+                  value:
+                    errors:
+                    - Cannot use cursor pagination with offset pagination
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                errors:
+                - Record not found
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                errors:
+                - An unexpected error occured
+  /photos/{id}:
+    get:
+      summary: Retrieve Photo
+      operationId: getPhoto
+      tags:
+      - Photos
+      parameters:
+      - name: id
+        in: path
+        description: ID of the Photo
+        required: true
+        schema:
+          type: string
+          format: id
+      responses:
+        '200':
+          description: Details about the photo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Photo'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                errors:
+                - Bad Request
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                errors:
+                - Record not found
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                errors:
+                - An unexpected error occured
+    put:
+      summary: Update Photo
+      parameters:
+      - name: id
+        in: path
+        description: ID of the Photo
+        required: true
+        schema:
+          type: string
+          format: id
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                photo:
+                  type: object
+                  properties:
+                    internal:
+                      type: boolean
+      operationId: updatePhoto
+      tags:
+      - Photos
+      responses:
+        '201':
+          description: The updated photo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Photo'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                errors:
+                - Bad Request
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                errors:
+                - Record not found
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                errors:
+                - An unexpected error occured
+    delete:
+      summary: Delete Photo
+      parameters:
+      - name: X-CompanyCam-User
+        in: header
+        description: Email of CompanyCam user to be designated as the editor
+        required: false
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: ID of the Photo
+        required: true
+        schema:
+          type: string
+          format: id
+      operationId: deletePhoto
+      tags:
+      - Photos
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                errors:
+                - Bad Request
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                errors:
+                - Record not found
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                errors:
+                - An unexpected error occured
+  /photos/{photo_id}/tags:
+    get:
+      summary: List Photo Tags
+      operationId: listPhotoTags
+      tags:
+      - Photos
+      parameters:
+      - name: photo_id
+        in: path
+        description: ID of the Photo
+        required: true
+        schema:
+          type: string
+          format: id
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: per_page
+        in: query
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: List of photo tags sorted alphabetically
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Tag'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                errors:
+                - Bad Request
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                errors:
+                - Record not found
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                errors:
+                - An unexpected error occured
+    post:
+      summary: Add Tags
+      operationId: createPhotoTags
+      tags:
+      - Photos
+      parameters:
+      - name: photo_id
+        in: path
+        description: ID of the Photo
+        required: true
+        schema:
+          type: string
+          format: id
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                tags:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '201':
+          description: The created photo tag(s)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tag'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                errors:
+                - Bad Request
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                errors:
+                - Record not found
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                errors:
+                - An unexpected error occured
+  /photos/{photo_id}/comments:
+    get:
+      summary: List Photo Comments
+      operationId: listPhotoComments
+      tags:
+      - Photos
+      parameters:
+      - name: photo_id
+        in: path
+        description: ID of the Photo
+        required: true
+        schema:
+          type: string
+          format: id
+      - name: page
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: per_page
+        in: query
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: List of photo tags sorted alphabetically
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Comment'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                errors:
+                - Bad Request
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                errors:
+                - Record not found
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                errors:
+                - An unexpected error occured
+    post:
+      summary: Add Comment
+      operationId: createPhotoComment
+      tags:
+      - Photos
+      parameters:
+      - name: X-CompanyCam-User
+        in: header
+        description: Email of CompanyCam user to be designated as the commenter
+        required: false
+        schema:
+          type: string
+      - name: photo_id
+        in: path
+        description: ID of the Photo
+        required: true
+        schema:
+          type: string
+          format: id
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                comment:
+                  type: object
+                  properties:
+                    content:
+                      type: string
+      responses:
+        '201':
+          description: The created photo comment
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Comment'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                errors:
+                - Bad Request
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                errors:
+                - Record not found
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                errors:
+                - An unexpected error occurred
+  /photos/{photo_id}/descriptions:
+    post:
+      summary: Update Photo Description
+      operationId: updatePhotoDescription
+      tags:
+      - Photos
+      parameters:
+      - name: photo_id
+        in: path
+        description: ID of the Photo
+        required: true
+        schema:
+          type: string
+          format: id
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                description:
+                  type: string
+      responses:
+        '201':
+          description: The updated photo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Photo'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                errors:
+                - Bad Request
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                errors:
+                - Record not found
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                errors:
+                - An unexpected error occurred
+components:
+  schemas:
+    Photo:
+      type: object
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          description: The unique ID for the photo
+          example: '4782987471'
+        company_id:
+          type: string
+          description: A unique identifier for the Company the Photo belongs to
+          example: '8292212'
+        creator_id:
+          type: string
+          description: The id of the entity that created the Photo
+          example: '2789583992'
+        creator_type:
+          type: string
+          description: The type of the entity that created the Photo
+          example: User
+        creator_name:
+          type: string
+          description: The display name of the entity that created the Photo
+          example: Shawn Spencer
+        project_id:
+          type: string
+          description: The unique ID of the project the Photo was captured at
+          example: '94772883'
+        processing_status:
+          type: string
+          description: Indicates the Photo’s processing status.
+          enum:
+          - pending
+          - processing
+          - processed
+          - processing_error
+          - duplicate
+          example: processed
+        status:
+          type: string
+          description: The status of the Photo
+          enum:
+          - active
+          - deleted
+          example: active
+        coordinates:
+          description: The coordinates where the Photo was captured
+          allOf:
+          - $ref: '#/components/schemas/Coordinate'
+        uris:
+          type: array
+          description: A list of URIs for the different size variants of the photo.
+          items:
+            $ref: '#/components/schemas/ImageURI'
+          example:
+          - type: original
+            url: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
+          - type: web
+            url: https://static.companycam.com/VuS0rPvrnNA1490797262web.jpg
+          - type: thumbnail
+            url: https://static.companycam.com/VuS0rPvrnNA1490797262small.jpg
+        hash:
+          type: string
+          description: The MD5 hash of the photo
+          example: 00ab337b7399151e5d4aa3bd4226e8dd
+        description:
+          type: string
+          description: A description of the photo
+          example: The front of the house
+        internal:
+          type: boolean
+          description: Indicates whether the photo is for internal use only and should not be used in marketing or other public materials
+          example: false
+        photo_url:
+          type: string
+          description: The link to the photo in the web app
+          example: https://app.companycam.com/photos/8675309
+        captured_at:
+          type: integer
+          format: int32
+          description: Timestamp when the Photo was captured
+          example: 1152230396
+        created_at:
+          type: integer
+          format: int32
+          description: Timestamp when the photo was created on the server. This may differ from the captured_at field
+          example: 1152230608
+        updated_at:
+          type: integer
+          format: int32
+          description: Timestamp when the photo was last updated
+          example: 1152230400
+    Tag:
+      type: object
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          description: A unique ID for the Tag.
+          example: '48892885'
+        company_id:
+          type: string
+          description: A unique ID for the Company the Tag belongs to
+          example: '8292212'
+        display_value:
+          type: string
+          description: The display value of the Tag. Used to display to the user
+          example: Front Side
+        value:
+          type: string
+          description: The lowercase version of the display_value. This is useful for searching and sorting
+          example: front side
+        created_at:
+          type: integer
+          format: int32
+          description: Timestamp when the Tag was created on the server
+          example: 1152230608
+        updated_at:
+          type: integer
+          format: int32
+          description: Timestamp when the Tag was last updated
+          example: 1152230700
+    Coordinate:
+      type: object
+      required:
+      - lat
+      - lon
+      properties:
+        lat:
+          type: number
+          format: float
+        lon:
+          type: number
+          format: float
+      example:
+        lat: 28.425852468018288
+        lon: -81.47155671113255
+    Comment:
+      type: object
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          description: The unique ID of the comment
+          example: '4782987471'
+        creator_id:
+          type: string
+          description: The id of the entity that created the Comment
+          example: '2789583992'
+        creator_type:
+          type: string
+          description: The type of the entity that created the Comment
+          example: User
+        creator_name:
+          type: string
+          description: The display name of the entity that created the Comment
+          example: Shawn Spencer
+        commentable_id:
+          type: string
+          description: The unique ID of the entity that the comment was applied to
+          example: '388472672'
+        commentable_type:
+          type: string
+          description: The type of the entity that the comment was applied to.
+          example: Photo
+        status:
+          type: string
+          description: This should always be active
+          example: active
+        content:
+          type: string
+          description: The contents of the comment. This may contain whitespace characters such as newlines.
+          example: Have you seen this yet?
+        created_at:
+          type: integer
+          format: int32
+          description: Timestamp when the Comment was created on the server
+          example: 1152230608
+        updated_at:
+          type: integer
+          format: int32
+          description: Timestamp when the Comment was last updated
+          example: 1152230400
+    ImageURI:
+      type: object
+      required:
+      - type
+      - uri
+      properties:
+        type:
+          type: string
+        uri:
+          type: string
+        url:
+          type: string
+      example:
+        type: original
+        uri: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
+        url: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
+    Error:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+          example:
+          - Record not found
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer

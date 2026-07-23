@@ -1,0 +1,97 @@
+openapi: 3.0.0
+info:
+  version: v2
+  title: Core Checklists Templates API
+servers:
+- url: https://api.companycam.com/v2
+security:
+- BearerAuth: []
+tags:
+- name: Templates
+paths:
+  /templates/checklists:
+    get:
+      summary: List All Checklist Templates
+      operationId: listChecklistTemplates
+      tags:
+      - Templates
+      responses:
+        '200':
+          description: List of Checklist Templates
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ChecklistTemplate'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                errors:
+                - Bad Request
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                errors:
+                - Record not found
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                errors:
+                - An unexpected error occured
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+          example:
+          - Record not found
+    ChecklistTemplate:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The unique ID for the ChecklistTemplate
+          example: '4782987471'
+        company_id:
+          type: string
+          description: A unique identifier for the Company the ChecklistTemplate belongs to
+          example: '8292212'
+        name:
+          type: string
+          description: The name for the ChecklistTemplate
+          example: Roof state survey
+        description:
+          type: string
+          description: The description for the ChecklistTemplate
+          example: A list to make sure everything was properly done
+        created_at:
+          type: integer
+          format: int32
+          description: Timestamp when the ChecklistTemplate was created on the server.
+          example: 1152230608
+        updated_at:
+          type: integer
+          format: int32
+          description: Timestamp when the ChecklistTemplate was last updated
+          example: 1152230400
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
