@@ -1,0 +1,15 @@
+# security.txt file for https://companycam.com/ - more info: https://securitytxt.org/
+# (required) Contact email address for security issues
+Contact: ty@companycam.com
+
+# (required) Expiration date for the security information herein
+Expiration: 2026-07-18T17:45:01-05:00
+
+# (optional) OpenPGP key:
+Encryption: https://companycam.com/pgp-key.txt
+
+# (optional) Security policy page:
+Policy: https://companycam.com/security-policy
+
+# (optional) Security acknowledgements page:
+Acknowledgements: https://companycam.com/hall-of-fame

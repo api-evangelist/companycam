@@ -1,0 +1,22 @@
+generated: '2026-07-18'
+method: searched
+source: live /.well-known/ probes of companycam.com, api.companycam.com, app.companycam.com
+hosts:
+- https://companycam.com
+- https://api.companycam.com
+- https://app.companycam.com
+documents:
+- path: https://companycam.com/.well-known/security.txt
+  status: 200
+  file: companycam-security.txt
+- path: https://app.companycam.com/.well-known/oauth-authorization-server
+  status: 200
+  file: companycam-oauth-authorization-server.json
+- path: https://api.companycam.com/.well-known/security.txt
+  status: 404
+- path: https://app.companycam.com/.well-known/openid-configuration
+  status: 404
+- path: https://api.companycam.com/.well-known/api-catalog
+  status: 404
+- path: https://companycam.com/.well-known/ai-plugin.json
+  status: 404

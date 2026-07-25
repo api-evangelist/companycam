@@ -1,0 +1,47 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.companycam.com/docs/webhooks-1
+spec_type: Webhooks
+transport: http-post
+management:
+  api: https://api.companycam.com/v2/webhooks
+  operations: [listWebhooks, createWebhook, getWebhook, updateWebhook, deleteWebhook]
+  ref: openapi/companycam-openapi-original.yml
+delivery:
+  expected_response: 200 OK
+  retry: exponential backoff, max 10 attempts per event
+  auto_disable: webhook disabled after error count exceeds 25; counter resets on success
+  semantics: at-least-once (consumers must dedupe on webhook_id)
+signature:
+  header: X-CompanyCam-Signature
+  algorithm: base64(HMAC-SHA1(request_body, webhook_token))
+  verification: timing-safe comparison of computed hash against header value
+payload_envelope:
+  event_type: string (matches the registered scope)
+  created_at: integer (unix timestamp)
+  payload: object (the event's resource, e.g. a Project or Photo)
+  webhook_id: integer
+scopes:
+  wildcards: ['*', 'project.*', 'photo.*', 'comment.*', 'document.*', 'video.*', 'todo_list.*', 'task.*']
+events:
+- project.created
+- project.updated
+- project.label_added
+- project.contact_created
+- project.contact_updated
+- project.merged
+- project.archived
+- project.deleted
+- photo.created
+- photo.updated
+- photo.tag_added
+- photo.description_updated
+- comment.created
+- document.created
+- document.updated
+- video.created
+- video.updated
+- todo_list.created
+- todo_list.completed
+- todo_list.deleted
+- task.completed

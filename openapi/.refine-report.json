@@ -1,0 +1,32 @@
+{
+  "provider": "companycam",
+  "sources": [
+    "companycam-checklists-api-openapi.yml",
+    "companycam-company-api-openapi.yml",
+    "companycam-groups-api-openapi.yml",
+    "companycam-photos-api-openapi.yml",
+    "companycam-projects-api-openapi.yml",
+    "companycam-tags-api-openapi.yml",
+    "companycam-templates-api-openapi.yml",
+    "companycam-users-api-openapi.yml",
+    "companycam-videos-api-openapi.yml",
+    "companycam-webhooks-api-openapi.yml"
+  ],
+  "outputs": [
+    "companycam-checklists-api-openapi.yml",
+    "companycam-company-api-openapi.yml",
+    "companycam-groups-api-openapi.yml",
+    "companycam-photos-api-openapi.yml",
+    "companycam-projects-api-openapi.yml",
+    "companycam-tags-api-openapi.yml",
+    "companycam-templates-api-openapi.yml",
+    "companycam-users-api-openapi.yml",
+    "companycam-videos-api-openapi.yml",
+    "companycam-webhooks-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

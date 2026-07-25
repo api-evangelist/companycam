@@ -1,0 +1,87 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/companycam-openapi-original.yml
+notes: >-
+  Entity graph derived from OpenAPI components.schemas $ref links and id-reference
+  fields (company_id, project_id, creator_id, etc.). All ids are string; all
+  timestamps are unix-epoch-seconds.
+entities:
+- name: Company
+  id: id
+- name: User
+  id: id
+  relationships:
+  - {type: belongs_to, target: Company, via: company_id}
+- name: Group
+  id: id
+  relationships:
+  - {type: belongs_to, target: Company, via: company_id}
+- name: Project
+  id: id
+  relationships:
+  - {type: belongs_to, target: Company, via: company_id}
+  - {type: has_many, target: Photo}
+  - {type: has_many, target: Video}
+  - {type: has_many, target: Document}
+  - {type: has_many, target: Comment}
+  - {type: has_many, target: Checklist}
+  - {type: has_many, target: ProjectCollaborator}
+  - {type: has_many, target: ProjectInvitation}
+  - {type: embeds, target: Address}
+  - {type: embeds, target: Coordinate, via: coordinates}
+  - {type: embeds, target: ProjectIntegration, via: integrations}
+- name: Photo
+  id: id
+  relationships:
+  - {type: belongs_to, target: Project, via: project_id}
+  - {type: belongs_to, target: Company, via: company_id}
+  - {type: has_many, target: Tag}
+  - {type: has_many, target: Comment}
+  - {type: embeds, target: ImageURI, via: uris}
+  - {type: embeds, target: Coordinate, via: coordinates}
+- name: Video
+  id: id
+  relationships:
+  - {type: belongs_to, target: Project, via: project_id}
+  - {type: belongs_to, target: Company, via: company_id}
+  - {type: embeds, target: Coordinate, via: coordinates}
+- name: Tag
+  id: id
+- name: Comment
+  id: id
+- name: Document
+  id: id
+  relationships:
+  - {type: belongs_to, target: Project, via: project_id}
+- name: Checklist
+  id: id
+  relationships:
+  - {type: belongs_to, target: Project}
+  - {type: has_many, target: ChecklistSection}
+  - {type: derived_from, target: ChecklistTemplate}
+- name: ChecklistSection
+  relationships:
+  - {type: has_many, target: Task}
+- name: Task
+  relationships:
+  - {type: has_many, target: SubTask}
+- name: SubTask
+- name: ChecklistTemplate
+  id: id
+- name: ProjectCollaborator
+  id: id
+  relationships:
+  - {type: belongs_to, target: Project, via: project_id}
+  - {type: belongs_to, target: Company, via: company_id}
+  - {type: belongs_to, target: ProjectInvitation, via: project_invitation_id}
+- name: ProjectInvitation
+  id: id
+  relationships:
+  - {type: belongs_to, target: Project, via: project_id}
+- name: Webhook
+  id: id
+- name: Address
+- name: Coordinate
+- name: ImageURI
+- name: ProjectIntegration
+- name: ProjectContactResponse

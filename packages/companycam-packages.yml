@@ -1,0 +1,43 @@
+generated: '2026-07-18'
+method: searched
+source:
+- https://github.com/CompanyCam
+- https://github.com/CompanyCam/openapi-spec
+notes: >-
+  CompanyCam maintains no actively-published, registry-distributed API client
+  SDK. The one first-party client wrapper is the .NET library
+  CompanyCam/companycam-dotnet (now archived, source-only). CompanyCam also
+  publishes an official OpenAPI 3.0 spec and an official Postman collection, from
+  which typed clients can be generated. Third-party community clients exist on npm
+  (companycam by PWI-Works, n8n-nodes-companycam) but are not first-party.
+packages:
+- language: csharp
+  registry: github
+  name: companycam-dotnet
+  url: https://github.com/CompanyCam/companycam-dotnet
+  official: true
+  status: archived
+  description: A .NET wrapper for the CompanyCam V2 API (first-party, archived/source-only).
+- language: openapi
+  registry: github
+  name: CompanyCam/openapi-spec
+  url: https://github.com/CompanyCam/openapi-spec
+  official: true
+  description: Official OpenAPI 3.0 description of the Core (v2) API — codegen source for typed clients.
+- language: postman
+  registry: github
+  name: CompanyCam v2 (Postman collection)
+  url: https://github.com/CompanyCam/openapi-spec/blob/main/CompanyCam%20v2.postman_collection.json
+  official: true
+  description: Official Postman collection for the CompanyCam v2 API.
+community_packages:
+- language: javascript
+  registry: npm
+  name: companycam
+  url: https://www.npmjs.com/package/companycam
+  official: false
+- language: javascript
+  registry: npm
+  name: n8n-nodes-companycam
+  url: https://www.npmjs.com/package/n8n-nodes-companycam
+  official: false

@@ -1,0 +1,45 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/companycam-openapi-original.yml
+format: custom
+envelope:
+  shape: '{ "errors": ["Human readable message", ...] }'
+  schema: '#/components/schemas/Error'
+  example:
+    errors:
+    - Record not found
+notes: >-
+  CompanyCam returns a simple error envelope with an "errors" array of strings —
+  not RFC 9457 application/problem+json. Every write and read operation in the
+  published OpenAPI declares 400, 404 and 500 responses (and 403 on a few),
+  all bodied with the Error schema. HTTP status is the primary machine signal.
+problems:
+- status: 400
+  title: Bad Request
+  meaning: Malformed request, invalid parameters, or validation failure.
+  content_type: application/json
+  schema: '#/components/schemas/Error'
+  occurrences_in_spec: 62
+- status: 403
+  title: Forbidden
+  meaning: Authenticated but not permitted (insufficient scope/permission for the resource).
+  content_type: application/json
+  schema: '#/components/schemas/Error'
+  occurrences_in_spec: 2
+- status: 404
+  title: Not Found
+  meaning: The requested resource does not exist or is not visible to the token.
+  content_type: application/json
+  schema: '#/components/schemas/Error'
+  occurrences_in_spec: 62
+- status: 429
+  title: Too Many Requests
+  meaning: Rate limit exceeded (GET 240/min; POST/PUT/DELETE 100/min). Retry with backoff.
+  source: https://docs.companycam.com/docs/rate-limits
+  note: Documented via rate-limit policy; not enumerated as a response in the OpenAPI.
+- status: 500
+  title: Internal Server Error
+  meaning: Unexpected server error.
+  content_type: application/json
+  schema: '#/components/schemas/Error'
+  occurrences_in_spec: 62

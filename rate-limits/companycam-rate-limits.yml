@@ -1,0 +1,25 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.companycam.com/docs/rate-limits
+scope: per-token, per-minute, by HTTP method
+rate_limits:
+- method: GET
+  limit_count: 240
+  window: 60s
+- method: POST
+  limit_count: 100
+  window: 60s
+- method: PUT
+  limit_count: 100
+  window: 60s
+- method: DELETE
+  limit_count: 100
+  window: 60s
+on_exceeded:
+  status: 429
+  guidance: >-
+    CompanyCam recommends implementing a sufficient retry mechanism (with
+    backoff) to account for requests denied due to rate limiting.
+headers:
+  documented: false
+  notes: The docs do not document rate-limit response headers.

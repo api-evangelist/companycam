@@ -1,0 +1,199 @@
+generated: '2026-07-18'
+method: derived
+status: candidate
+source: openapi/companycam-openapi-original.yml
+notes: No official hosted/remote MCP server was found for CompanyCam. This is a CANDIDATE tool surface
+  derived one-to-one from the published OpenAPI v2 operations; auth is HTTP Bearer (personal access token
+  or OAuth 2.0). Not an endorsed CompanyCam product.
+server:
+  name: companycam
+  transport: stdio
+  auth: bearer
+  base_url: https://api.companycam.com/v2
+tools:
+- name: listChecklists
+  description: List All Checklists
+  source_operation: openapi/companycam-openapi-original.yml#listChecklists
+- name: getCurrentCompany
+  description: Retrieve Company
+  source_operation: openapi/companycam-openapi-original.yml#getCurrentCompany
+- name: getCurrentUser
+  description: Retrieve Current User
+  source_operation: openapi/companycam-openapi-original.yml#getCurrentUser
+- name: listUsers
+  description: List All Users
+  source_operation: openapi/companycam-openapi-original.yml#listUsers
+- name: createUser
+  description: Create User
+  source_operation: openapi/companycam-openapi-original.yml#createUser
+- name: getUser
+  description: Retrieve User
+  source_operation: openapi/companycam-openapi-original.yml#getUser
+- name: updateUser
+  description: Update User
+  source_operation: openapi/companycam-openapi-original.yml#updateUser
+- name: deleteUser
+  description: Delete User
+  source_operation: openapi/companycam-openapi-original.yml#deleteUser
+- name: listProjects
+  description: List Projects
+  source_operation: openapi/companycam-openapi-original.yml#listProjects
+- name: createProject
+  description: Create Project
+  source_operation: openapi/companycam-openapi-original.yml#createProject
+- name: getProject
+  description: Retrieve Project
+  source_operation: openapi/companycam-openapi-original.yml#getProject
+- name: updateProject
+  description: Update Project
+  source_operation: openapi/companycam-openapi-original.yml#updateProject
+- name: deleteProject
+  description: Delete Project
+  source_operation: openapi/companycam-openapi-original.yml#deleteProject
+- name: archiveProject
+  description: Archive Project
+  source_operation: openapi/companycam-openapi-original.yml#archiveProject
+- name: restoreProject
+  description: Restore Project
+  source_operation: openapi/companycam-openapi-original.yml#restoreProject
+- name: listProjectPhotos
+  description: List Photos
+  source_operation: openapi/companycam-openapi-original.yml#listProjectPhotos
+- name: createProjectPhoto
+  description: Add Photo
+  source_operation: openapi/companycam-openapi-original.yml#createProjectPhoto
+- name: listProjectVideos
+  description: List Videos
+  source_operation: openapi/companycam-openapi-original.yml#listProjectVideos
+- name: listProjectAssignedUsers
+  description: List assigned users
+  source_operation: openapi/companycam-openapi-original.yml#listProjectAssignedUsers
+- name: assignUserToProject
+  description: Assign a user to a project
+  source_operation: openapi/companycam-openapi-original.yml#assignUserToProject
+- name: removeUserFromProject
+  description: Remove assigned user from project
+  source_operation: openapi/companycam-openapi-original.yml#removeUserFromProject
+- name: updateProjectNotepad
+  description: Update the project notepad
+  source_operation: openapi/companycam-openapi-original.yml#updateProjectNotepad
+- name: listProjectCollaborators
+  description: List project collaborators
+  source_operation: openapi/companycam-openapi-original.yml#listProjectCollaborators
+- name: listProjectInvitations
+  description: List project invitations
+  source_operation: openapi/companycam-openapi-original.yml#listProjectInvitations
+- name: createInvitation
+  description: Create a new project invitation for collaboration
+  source_operation: openapi/companycam-openapi-original.yml#createInvitation
+- name: listProjectLabels
+  description: List Project Labels
+  source_operation: openapi/companycam-openapi-original.yml#listProjectLabels
+- name: createProjectLabels
+  description: Add Labels
+  source_operation: openapi/companycam-openapi-original.yml#createProjectLabels
+- name: deleteProjectLabel
+  description: Delete Label
+  source_operation: openapi/companycam-openapi-original.yml#deleteProjectLabel
+- name: listProjectDocuments
+  description: List Project Documents
+  source_operation: openapi/companycam-openapi-original.yml#listProjectDocuments
+- name: createProjectDocument
+  description: Upload a Document
+  source_operation: openapi/companycam-openapi-original.yml#createProjectDocument
+- name: listProjectComments
+  description: List Project Comments
+  source_operation: openapi/companycam-openapi-original.yml#listProjectComments
+- name: createProjectComment
+  description: Add Project Comment
+  source_operation: openapi/companycam-openapi-original.yml#createProjectComment
+- name: listProjectChecklists
+  description: List Project Checklists
+  source_operation: openapi/companycam-openapi-original.yml#listProjectChecklists
+- name: createProjectChecklist
+  description: Create Checklist on Project from a Checklist Template
+  source_operation: openapi/companycam-openapi-original.yml#createProjectChecklist
+- name: getProjectChecklist
+  description: Retrieve Project Checklist
+  source_operation: openapi/companycam-openapi-original.yml#getProjectChecklist
+- name: listPhotos
+  description: List Photos
+  source_operation: openapi/companycam-openapi-original.yml#listPhotos
+- name: getPhoto
+  description: Retrieve Photo
+  source_operation: openapi/companycam-openapi-original.yml#getPhoto
+- name: updatePhoto
+  description: Update Photo
+  source_operation: openapi/companycam-openapi-original.yml#updatePhoto
+- name: deletePhoto
+  description: Delete Photo
+  source_operation: openapi/companycam-openapi-original.yml#deletePhoto
+- name: listPhotoTags
+  description: List Photo Tags
+  source_operation: openapi/companycam-openapi-original.yml#listPhotoTags
+- name: createPhotoTags
+  description: Add Tags
+  source_operation: openapi/companycam-openapi-original.yml#createPhotoTags
+- name: listPhotoComments
+  description: List Photo Comments
+  source_operation: openapi/companycam-openapi-original.yml#listPhotoComments
+- name: createPhotoComment
+  description: Add Comment
+  source_operation: openapi/companycam-openapi-original.yml#createPhotoComment
+- name: updatePhotoDescription
+  description: Update Photo Description
+  source_operation: openapi/companycam-openapi-original.yml#updatePhotoDescription
+- name: listVideos
+  description: List Videos
+  source_operation: openapi/companycam-openapi-original.yml#listVideos
+- name: getVideo
+  description: Retrieve Video
+  source_operation: openapi/companycam-openapi-original.yml#getVideo
+- name: listTags
+  description: List All Tags
+  source_operation: openapi/companycam-openapi-original.yml#listTags
+- name: createTag
+  description: Create Tag
+  source_operation: openapi/companycam-openapi-original.yml#createTag
+- name: getTag
+  description: Retrieve tag
+  source_operation: openapi/companycam-openapi-original.yml#getTag
+- name: updateTag
+  description: Update Tag
+  source_operation: openapi/companycam-openapi-original.yml#updateTag
+- name: deleteTag
+  description: Delete a Tag
+  source_operation: openapi/companycam-openapi-original.yml#deleteTag
+- name: listChecklistTemplates
+  description: List All Checklist Templates
+  source_operation: openapi/companycam-openapi-original.yml#listChecklistTemplates
+- name: listGroups
+  description: List Groups
+  source_operation: openapi/companycam-openapi-original.yml#listGroups
+- name: createGroup
+  description: Create Group
+  source_operation: openapi/companycam-openapi-original.yml#createGroup
+- name: getGroup
+  description: Retrieve Group
+  source_operation: openapi/companycam-openapi-original.yml#getGroup
+- name: updateGroup
+  description: Update Group
+  source_operation: openapi/companycam-openapi-original.yml#updateGroup
+- name: deleteGroup
+  description: Delete a Group
+  source_operation: openapi/companycam-openapi-original.yml#deleteGroup
+- name: listWebhooks
+  description: List Webhooks
+  source_operation: openapi/companycam-openapi-original.yml#listWebhooks
+- name: createWebhook
+  description: Create Webhook
+  source_operation: openapi/companycam-openapi-original.yml#createWebhook
+- name: getWebhook
+  description: Retrieve Webhook
+  source_operation: openapi/companycam-openapi-original.yml#getWebhook
+- name: updateWebhook
+  description: Update Webhook
+  source_operation: openapi/companycam-openapi-original.yml#updateWebhook
+- name: deleteWebhook
+  description: Delete Webhook
+  source_operation: openapi/companycam-openapi-original.yml#deleteWebhook

@@ -1,0 +1,50 @@
+generated: '2026-07-18'
+method: searched
+source:
+- openapi/companycam-openapi-original.yml
+- https://app.companycam.com/.well-known/oauth-authorization-server
+standards:
+- id: oauth2
+  conforms: true
+  evidence: >-
+    Authorization-code grant with refresh tokens advertised at the RFC 8414
+    authorization-server metadata endpoint; documented at docs/oauth.
+- id: oauth2-authorization-server-metadata-rfc8414
+  conforms: true
+  evidence: /.well-known/oauth-authorization-server returns 200 with full metadata
+- id: oauth2-pkce-rfc7636
+  conforms: true
+  evidence: code_challenge_methods_supported includes S256
+- id: oauth2-dynamic-client-registration-rfc7591
+  conforms: true
+  evidence: registration_endpoint present (https://app.companycam.com/oauth/register)
+- id: oauth2-token-revocation-rfc7009
+  conforms: true
+  evidence: revocation_endpoint present
+- id: oauth2-token-introspection-rfc7662
+  conforms: true
+  evidence: introspection_endpoint present
+- id: bearer-token-rfc6750
+  conforms: true
+  evidence: OpenAPI securityScheme type http scheme bearer; Authorization Bearer header
+- id: oidc
+  conforms: false
+  evidence: /.well-known/openid-configuration returns 404; no id_token/OIDC surface
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: 'errors returned as an errors[] string array, not application/problem+json'
+- id: rfc9116-security-txt
+  conforms: true
+  evidence: https://companycam.com/.well-known/security.txt returns 200
+- id: webhooks-hmac-signing
+  conforms: true
+  evidence: X-CompanyCam-Signature = base64(HMAC-SHA1(body, webhook_token))
+- id: pagination
+  conforms: true
+  evidence: page/per_page query params across list operations
+- id: idempotency
+  conforms: false
+  evidence: no idempotency-key mechanism documented
+- id: openapi-3.0
+  conforms: true
+  evidence: published openapi 3.0.0 spec (CompanyCam/openapi-spec)

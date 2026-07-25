@@ -1,21 +1,309 @@
 aid: companycam
 name: CompanyCam
-description: CompanyCam is a company surfaced as a portfolio company of insight-partners and added to
-  the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment
-  pipeline.
+description: >-
+  CompanyCam is a photo-based job-site documentation platform for contractors and
+  the trades — roofing, restoration, solar, home services and construction. Its
+  mobile apps capture location- and time-stamped photos and videos that sync to a
+  shared, project-organized workspace so crews, offices and clients stay aligned.
+  The CompanyCam Core API (v2) is a REST API over projects, photos, videos, users,
+  groups, tags, comments, documents, checklists and webhooks, secured with Bearer
+  access tokens or OAuth 2.0 (authorization-code with PKCE and refresh tokens). It
+  publishes an official OpenAPI 3.0 description, a Postman collection, granular
+  per-resource OAuth scopes advertised via RFC 8414 metadata, HMAC-signed
+  webhooks, and per-method rate limits. CompanyCam is backed by Insight Partners.
 url: https://raw.githubusercontent.com/api-evangelist/companycam/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - insight-partners
-x-tier: stub
+x-tier: enriched
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://cdn.companycam.com/dist/img/site/favicon-96x96-2021.png
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
 tags:
 - Company
-apis: []
+- Construction
+- Photos
+- Field Service
+- Project Management
+- Contractors
+- Documentation
+- Webhooks
+apis:
+- aid: companycam:companycam-checklists-api
+  name: CompanyCam Checklists API
+  description: The Checklists API from CompanyCam — 1 operation(s) for checklists.
+  humanURL: https://docs.companycam.com/
+  baseURL: https://api.companycam.com/v2
+  tags:
+  - Checklists
+  properties:
+  - type: OpenAPI
+    url: openapi/companycam-checklists-api-openapi.yml
+  - type: Postman
+    url: openapi/companycam-v2.postman_collection.json
+  - type: Authentication
+    url: authentication/companycam-authentication.yml
+  - type: OAuthScopes
+    url: scopes/companycam-scopes.yml
+  - type: Conventions
+    url: conventions/companycam-conventions.yml
+  - type: ErrorCatalog
+    url: errors/companycam-problem-types.yml
+  - type: RateLimits
+    url: rate-limits/companycam-rate-limits.yml
+  - type: Webhooks
+    url: asyncapi/companycam-webhooks.yml
+  - type: DataModel
+    url: data-model/companycam-data-model.yml
+- aid: companycam:companycam-company-api
+  name: CompanyCam Company API
+  description: The Company API from CompanyCam — 1 operation(s) for company.
+  humanURL: https://docs.companycam.com/
+  baseURL: https://api.companycam.com/v2
+  tags:
+  - Company
+  properties:
+  - type: OpenAPI
+    url: openapi/companycam-company-api-openapi.yml
+  - type: Postman
+    url: openapi/companycam-v2.postman_collection.json
+  - type: Authentication
+    url: authentication/companycam-authentication.yml
+  - type: OAuthScopes
+    url: scopes/companycam-scopes.yml
+  - type: Conventions
+    url: conventions/companycam-conventions.yml
+  - type: ErrorCatalog
+    url: errors/companycam-problem-types.yml
+  - type: RateLimits
+    url: rate-limits/companycam-rate-limits.yml
+  - type: Webhooks
+    url: asyncapi/companycam-webhooks.yml
+  - type: DataModel
+    url: data-model/companycam-data-model.yml
+- aid: companycam:companycam-groups-api
+  name: CompanyCam Groups API
+  description: The Groups API from CompanyCam — 2 operation(s) for groups.
+  humanURL: https://docs.companycam.com/
+  baseURL: https://api.companycam.com/v2
+  tags:
+  - Groups
+  properties:
+  - type: OpenAPI
+    url: openapi/companycam-groups-api-openapi.yml
+  - type: Postman
+    url: openapi/companycam-v2.postman_collection.json
+  - type: Authentication
+    url: authentication/companycam-authentication.yml
+  - type: OAuthScopes
+    url: scopes/companycam-scopes.yml
+  - type: Conventions
+    url: conventions/companycam-conventions.yml
+  - type: ErrorCatalog
+    url: errors/companycam-problem-types.yml
+  - type: RateLimits
+    url: rate-limits/companycam-rate-limits.yml
+  - type: Webhooks
+    url: asyncapi/companycam-webhooks.yml
+  - type: DataModel
+    url: data-model/companycam-data-model.yml
+- aid: companycam:companycam-photos-api
+  name: CompanyCam Photos API
+  description: The Photos API from CompanyCam — 5 operation(s) for photos.
+  humanURL: https://docs.companycam.com/
+  baseURL: https://api.companycam.com/v2
+  tags:
+  - Photos
+  properties:
+  - type: OpenAPI
+    url: openapi/companycam-photos-api-openapi.yml
+  - type: Postman
+    url: openapi/companycam-v2.postman_collection.json
+  - type: Authentication
+    url: authentication/companycam-authentication.yml
+  - type: OAuthScopes
+    url: scopes/companycam-scopes.yml
+  - type: Conventions
+    url: conventions/companycam-conventions.yml
+  - type: ErrorCatalog
+    url: errors/companycam-problem-types.yml
+  - type: RateLimits
+    url: rate-limits/companycam-rate-limits.yml
+  - type: Webhooks
+    url: asyncapi/companycam-webhooks.yml
+  - type: DataModel
+    url: data-model/companycam-data-model.yml
+- aid: companycam:companycam-projects-api
+  name: CompanyCam Projects API
+  description: The Projects API from CompanyCam — 17 operation(s) for projects.
+  humanURL: https://docs.companycam.com/
+  baseURL: https://api.companycam.com/v2
+  tags:
+  - Projects
+  properties:
+  - type: OpenAPI
+    url: openapi/companycam-projects-api-openapi.yml
+  - type: Postman
+    url: openapi/companycam-v2.postman_collection.json
+  - type: Authentication
+    url: authentication/companycam-authentication.yml
+  - type: OAuthScopes
+    url: scopes/companycam-scopes.yml
+  - type: Conventions
+    url: conventions/companycam-conventions.yml
+  - type: ErrorCatalog
+    url: errors/companycam-problem-types.yml
+  - type: RateLimits
+    url: rate-limits/companycam-rate-limits.yml
+  - type: Webhooks
+    url: asyncapi/companycam-webhooks.yml
+  - type: DataModel
+    url: data-model/companycam-data-model.yml
+- aid: companycam:companycam-tags-api
+  name: CompanyCam Tags API
+  description: The Tags API from CompanyCam — 2 operation(s) for tags.
+  humanURL: https://docs.companycam.com/
+  baseURL: https://api.companycam.com/v2
+  tags:
+  - Tags
+  properties:
+  - type: OpenAPI
+    url: openapi/companycam-tags-api-openapi.yml
+  - type: Postman
+    url: openapi/companycam-v2.postman_collection.json
+  - type: Authentication
+    url: authentication/companycam-authentication.yml
+  - type: OAuthScopes
+    url: scopes/companycam-scopes.yml
+  - type: Conventions
+    url: conventions/companycam-conventions.yml
+  - type: ErrorCatalog
+    url: errors/companycam-problem-types.yml
+  - type: RateLimits
+    url: rate-limits/companycam-rate-limits.yml
+  - type: Webhooks
+    url: asyncapi/companycam-webhooks.yml
+  - type: DataModel
+    url: data-model/companycam-data-model.yml
+- aid: companycam:companycam-templates-api
+  name: CompanyCam Templates API
+  description: The Templates API from CompanyCam — 1 operation(s) for templates.
+  humanURL: https://docs.companycam.com/
+  baseURL: https://api.companycam.com/v2
+  tags:
+  - Templates
+  properties:
+  - type: OpenAPI
+    url: openapi/companycam-templates-api-openapi.yml
+  - type: Postman
+    url: openapi/companycam-v2.postman_collection.json
+  - type: Authentication
+    url: authentication/companycam-authentication.yml
+  - type: OAuthScopes
+    url: scopes/companycam-scopes.yml
+  - type: Conventions
+    url: conventions/companycam-conventions.yml
+  - type: ErrorCatalog
+    url: errors/companycam-problem-types.yml
+  - type: RateLimits
+    url: rate-limits/companycam-rate-limits.yml
+  - type: Webhooks
+    url: asyncapi/companycam-webhooks.yml
+  - type: DataModel
+    url: data-model/companycam-data-model.yml
+- aid: companycam:companycam-users-api
+  name: CompanyCam Users API
+  description: The Users API from CompanyCam — 3 operation(s) for users.
+  humanURL: https://docs.companycam.com/
+  baseURL: https://api.companycam.com/v2
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/companycam-users-api-openapi.yml
+  - type: Postman
+    url: openapi/companycam-v2.postman_collection.json
+  - type: Authentication
+    url: authentication/companycam-authentication.yml
+  - type: OAuthScopes
+    url: scopes/companycam-scopes.yml
+  - type: Conventions
+    url: conventions/companycam-conventions.yml
+  - type: ErrorCatalog
+    url: errors/companycam-problem-types.yml
+  - type: RateLimits
+    url: rate-limits/companycam-rate-limits.yml
+  - type: Webhooks
+    url: asyncapi/companycam-webhooks.yml
+  - type: DataModel
+    url: data-model/companycam-data-model.yml
+- aid: companycam:companycam-videos-api
+  name: CompanyCam Videos API
+  description: The Videos API from CompanyCam — 2 operation(s) for videos.
+  humanURL: https://docs.companycam.com/
+  baseURL: https://api.companycam.com/v2
+  tags:
+  - Videos
+  properties:
+  - type: OpenAPI
+    url: openapi/companycam-videos-api-openapi.yml
+  - type: Postman
+    url: openapi/companycam-v2.postman_collection.json
+  - type: Authentication
+    url: authentication/companycam-authentication.yml
+  - type: OAuthScopes
+    url: scopes/companycam-scopes.yml
+  - type: Conventions
+    url: conventions/companycam-conventions.yml
+  - type: ErrorCatalog
+    url: errors/companycam-problem-types.yml
+  - type: RateLimits
+    url: rate-limits/companycam-rate-limits.yml
+  - type: Webhooks
+    url: asyncapi/companycam-webhooks.yml
+  - type: DataModel
+    url: data-model/companycam-data-model.yml
+- aid: companycam:companycam-webhooks-api
+  name: CompanyCam Webhooks API
+  description: The Webhooks API from CompanyCam — 2 operation(s) for webhooks.
+  humanURL: https://docs.companycam.com/
+  baseURL: https://api.companycam.com/v2
+  tags:
+  - Webhooks
+  properties:
+  - type: OpenAPI
+    url: openapi/companycam-webhooks-api-openapi.yml
+  - type: Postman
+    url: openapi/companycam-v2.postman_collection.json
+  - type: Authentication
+    url: authentication/companycam-authentication.yml
+  - type: OAuthScopes
+    url: scopes/companycam-scopes.yml
+  - type: Conventions
+    url: conventions/companycam-conventions.yml
+  - type: ErrorCatalog
+    url: errors/companycam-problem-types.yml
+  - type: RateLimits
+    url: rate-limits/companycam-rate-limits.yml
+  - type: Webhooks
+    url: asyncapi/companycam-webhooks.yml
+  - type: DataModel
+    url: data-model/companycam-data-model.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -24,3 +312,80 @@ maintainers:
 common:
 - type: Website
   url: https://companycam.com/
+- type: DeveloperPortal
+  url: https://docs.companycam.com/
+- type: Documentation
+  url: https://docs.companycam.com/
+- type: APIReference
+  url: https://docs.companycam.com/reference
+- type: GettingStarted
+  url: https://docs.companycam.com/docs/getting-started
+- type: ChangeLog
+  url: https://companycam.readme.io/changelog
+- type: StatusPage
+  url: https://status.companycam.com
+- type: Support
+  url: https://help.companycam.com
+- type: Blog
+  url: https://companycam.com/blog
+- type: GitHubOrganization
+  url: https://github.com/CompanyCam
+- type: Pricing
+  url: https://companycam.com/pricing
+- type: SignUp
+  url: https://app.companycam.com/signup
+- type: TermsOfService
+  url: https://companycam.com/terms
+- type: PrivacyPolicy
+  url: https://companycam.com/privacy
+- type: Postman
+  url: openapi/companycam-v2.postman_collection.json
+- type: LLMsTxt
+  url: llms/companycam-llms.txt
+- type: SDKs
+  url: packages/companycam-packages.yml
+- type: Packages
+  url: packages/companycam-packages.yml
+- type: Authentication
+  url: authentication/companycam-authentication.yml
+- type: OAuthScopes
+  url: scopes/companycam-scopes.yml
+- type: Conventions
+  url: conventions/companycam-conventions.yml
+- type: RateLimits
+  url: rate-limits/companycam-rate-limits.yml
+- type: ErrorCatalog
+  url: errors/companycam-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/companycam-lifecycle.yml
+- type: Conformance
+  url: conformance/companycam-conformance.yml
+- type: ChangeLog
+  url: changelog/companycam-changelog.yml
+- type: DataModel
+  url: data-model/companycam-data-model.yml
+- type: Webhooks
+  url: asyncapi/companycam-webhooks.yml
+- type: WellKnown
+  url: well-known/companycam-well-known.yml
+- type: SecurityTxt
+  url: well-known/companycam-security.txt
+- type: Security
+  url: well-known/companycam-security.txt
+- type: VulnerabilityDisclosure
+  url: security/companycam-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/companycam-domain-security.yml
+- type: AgenticAccess
+  url: agentic-access/companycam-agentic-access.yml
+- type: MCPServer
+  url: mcp/companycam-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Overlay
+  url: overlays/companycam-openapi-overlay.yaml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

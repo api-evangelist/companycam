@@ -1,0 +1,78 @@
+generated: '2026-07-18'
+method: searched
+source: https://app.companycam.com/.well-known/oauth-authorization-server
+docs: https://docs.companycam.com/docs/oauth
+notes: >-
+  CompanyCam OAuth 2.0 authorization-code flow (with refresh tokens and PKCE
+  S256). Scopes are space-delimited. The docs highlight three coarse scopes
+  (read, write, destroy); the RFC 8414 authorization-server metadata publishes a
+  much larger per-resource scope set (resource:action), enumerated below verbatim
+  from scopes_supported.
+schemes:
+- name: OAuth2
+  type: oauth2
+  source: https://app.companycam.com/.well-known/oauth-authorization-server
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://app.companycam.com/oauth/authorize
+    tokenUrl: https://app.companycam.com/oauth/token
+    refreshUrl: https://app.companycam.com/oauth/token
+  pkce: S256
+  revocation_endpoint: https://app.companycam.com/oauth/revoke
+  introspection_endpoint: https://app.companycam.com/oauth/introspect
+  registration_endpoint: https://app.companycam.com/oauth/register
+scopes:
+- {scope: read, description: Global read access across all resources}
+- {scope: write, description: Global write (create/update) access across all resources}
+- {scope: destroy, description: Global delete access across all resources}
+- {scope: 'projects:read', description: Read projects}
+- {scope: 'projects:write', description: Create and update projects}
+- {scope: 'projects:destroy', description: Delete projects}
+- {scope: 'photos:read', description: Read photos}
+- {scope: 'photos:write', description: Upload and update photos}
+- {scope: 'photos:destroy', description: Delete photos}
+- {scope: 'videos:read', description: Read videos}
+- {scope: 'videos:write', description: Upload and update videos}
+- {scope: 'videos:destroy', description: Delete videos}
+- {scope: 'comments:read', description: Read comments}
+- {scope: 'comments:write', description: Create and update comments}
+- {scope: 'comments:destroy', description: Delete comments}
+- {scope: 'users:read', description: Read users}
+- {scope: 'users:write', description: Create and update users}
+- {scope: 'users:destroy', description: Delete users}
+- {scope: 'companies:read', description: Read company details}
+- {scope: 'companies:write', description: Update company details}
+- {scope: 'documents:read', description: Read project documents}
+- {scope: 'documents:write', description: Upload and update project documents}
+- {scope: 'documents:destroy', description: Delete project documents}
+- {scope: 'labels:read', description: Read project labels}
+- {scope: 'labels:write', description: Add project labels}
+- {scope: 'labels:destroy', description: Delete project labels}
+- {scope: 'tags:read', description: Read tags}
+- {scope: 'tags:write', description: Create and update tags}
+- {scope: 'tags:destroy', description: Delete tags}
+- {scope: 'webhooks:read', description: Read webhooks}
+- {scope: 'webhooks:write', description: Create and update webhooks}
+- {scope: 'webhooks:destroy', description: Delete webhooks}
+- {scope: 'task_lists:read', description: Read task/checklist lists}
+- {scope: 'task_lists:write', description: Create and update task lists}
+- {scope: 'task_lists:destroy', description: Delete task lists}
+- {scope: 'project_tasks:read', description: Read project tasks}
+- {scope: 'project_tasks:write', description: Create and update project tasks}
+- {scope: 'project_tasks:destroy', description: Delete project tasks}
+- {scope: 'checklists:read', description: Read checklists}
+- {scope: 'checklists:write', description: Create checklists on projects}
+- {scope: 'checklists:destroy', description: Delete checklists}
+- {scope: 'assigned_users:read', description: Read users assigned to projects}
+- {scope: 'assigned_users:write', description: Assign users to projects}
+- {scope: 'assigned_users:destroy', description: Remove assigned users from projects}
+- {scope: 'collaborators:read', description: Read project collaborators}
+- {scope: 'invitations:read', description: Read project invitations}
+- {scope: 'invitations:write', description: Create project collaboration invitations}
+- {scope: 'pages:read', description: Read pages}
+- {scope: 'groups:read', description: Read groups}
+- {scope: 'groups:write', description: Create and update groups}
+- {scope: 'groups:destroy', description: Delete groups}
+- {scope: 'project_groups:read', description: Read project groups}
+- {scope: 'project_groups:write', description: Manage project groups}
+- {scope: 'project_groups:destroy', description: Remove project groups}

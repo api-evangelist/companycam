@@ -1,0 +1,24 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.companycam.com/
+versioning:
+  scheme: uri-path
+  current: v2
+  base_url: https://api.companycam.com/v2
+  docs: https://docs.companycam.com/docs/getting-started
+status_page: https://status.companycam.com
+status_provider: statuspage-style
+uptime_observed:
+  api: '99.99%'
+  window: 90 days
+  captured: '2026-07-18'
+changelog:
+  url: https://companycam.readme.io/changelog
+  ref: changelog/companycam-changelog.yml
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: >-
+    No formal deprecation policy or RFC 8594 Sunset/Deprecation header support is
+    documented, and no operations are marked deprecated in the published OpenAPI.
+deprecated_operations: []

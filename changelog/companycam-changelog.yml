@@ -1,0 +1,20 @@
+generated: '2026-07-18'
+method: searched
+source: https://companycam.readme.io/changelog
+scheme: dated-readme-changelog
+current_version: v2
+notes: >-
+  ReadMe-hosted changelog. Entries are dated on the live page but the index
+  exposes relative ages only; captured here are titles, authors and relative age
+  as observed 2026-07-18. No breaking changes are flagged in the recent window.
+entries:
+- {title: Archive Projects, type: addition, author: Mat Greten, relative_age: over 1 year ago}
+- {title: Add photo descriptions during upload or later, type: addition, author: Mat Greten, relative_age: over 1 year ago}
+- {title: Defining the current user, type: update, author: Vanessa D'Amore, relative_age: about 2 years ago}
+- {title: Webhook retry logic, type: enhancement, author: Vanessa D'Amore, relative_age: about 2 years ago}
+- {title: Add tags when uploading a photo to a project, type: addition, author: Vanessa D'Amore, relative_age: about 2 years ago}
+- {title: Description for Photos, type: addition, author: Corey Collins, relative_age: almost 3 years ago}
+- {title: Add a checklist to project, type: addition, author: Corey Collins, relative_age: over 3 years ago}
+- {title: Removing permissions for project collaborators, type: update, author: Corey Collins, relative_age: over 3 years ago}
+- {title: Invite collaborators to a project, type: addition, author: Corey Collins, relative_age: over 3 years ago}
+- {title: Assign users to a project, type: addition, author: Corey Collins, relative_age: almost 4 years ago}

@@ -1,0 +1,16 @@
+generated: '2026-07-18'
+method: generated
+source: openapi/companycam-openapi-original.yml
+skills:
+- file: companycam-document-a-project.md
+  name: Document a job site in CompanyCam
+  api: openapi/companycam-openapi-original.yml
+  operations: [createProject, listProjects, createProjectPhoto, createPhotoTags, listProjectPhotos]
+- file: companycam-subscribe-to-webhooks.md
+  name: Subscribe to CompanyCam webhooks and verify deliveries
+  api: openapi/companycam-openapi-original.yml
+  operations: [createWebhook, listWebhooks, getWebhook, updateWebhook, deleteWebhook]
+- file: companycam-oauth-connect.md
+  name: Connect a CompanyCam account via OAuth 2.0
+  api: openapi/companycam-openapi-original.yml
+  operations: [getCurrentUser, getCurrentCompany, listProjects]

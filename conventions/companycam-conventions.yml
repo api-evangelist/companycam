@@ -1,0 +1,45 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.companycam.com/docs/getting-started
+authentication:
+  style: bearer-token
+  header: Authorization
+  format: 'Bearer <API_TOKEN>'
+  oauth2: true
+  ref: authentication/companycam-authentication.yml
+pagination:
+  style: page-number
+  params:
+  - {name: page, in: query, type: integer, description: 1-based page number}
+  - {name: per_page, in: query, type: integer, description: items per page}
+  response: array body (no pagination envelope); iterate pages until an empty array is returned
+idempotency:
+  supported: false
+  notes: >-
+    CompanyCam does not document an idempotency-key header or mechanism. Retries
+    of write operations are not deduplicated by the server; clients should guard
+    against duplicate creates. Webhook delivery uses at-least-once semantics with
+    exponential-backoff retries, so consumers must dedupe on webhook_id/event.
+versioning:
+  style: uri-path
+  current: v2
+  base_url: https://api.companycam.com/v2
+request_tracing:
+  request_id_header: null
+  notes: No documented request-id/trace header.
+timestamps:
+  format: unix-epoch-seconds
+  fields: [created_at, updated_at, captured_at, accepted_at, expires_at]
+rate_limiting:
+  ref: rate-limits/companycam-rate-limits.yml
+  get_per_minute: 240
+  write_per_minute: 100
+  guidance: implement a retry mechanism for rate-limited requests
+errors:
+  ref: errors/companycam-problem-types.yml
+  envelope: '{ "errors": ["message", ...] }'
+  format: custom (not RFC 9457 problem+json)
+webhooks:
+  ref: asyncapi/companycam-webhooks.yml
+  signature_header: X-CompanyCam-Signature
+  signature_algorithm: base64(HMAC-SHA1(body, webhook_token))

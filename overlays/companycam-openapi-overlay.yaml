@@ -1,0 +1,55 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for CompanyCam Core API
+  version: 1.0.0
+extends: openapi/companycam-openapi-original.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-enriched: '2026-07-18'
+    x-apievangelist-rating-artifacts:
+    - authentication/companycam-authentication.yml
+    - scopes/companycam-scopes.yml
+    - conventions/companycam-conventions.yml
+    - errors/companycam-problem-types.yml
+    - rate-limits/companycam-rate-limits.yml
+    - lifecycle/companycam-lifecycle.yml
+    - asyncapi/companycam-webhooks.yml
+- target: $.info
+  update:
+    x-authentication:
+      bearer: true
+      oauth2:
+        authorizationUrl: https://app.companycam.com/oauth/authorize
+        tokenUrl: https://app.companycam.com/oauth/token
+        pkce: S256
+        scopes_metadata: https://app.companycam.com/.well-known/oauth-authorization-server
+- target: $.info
+  update:
+    x-rate-limits:
+      GET: 240/min
+      POST: 100/min
+      PUT: 100/min
+      DELETE: 100/min
+- target: $.info
+  update:
+    x-webhooks:
+      signature_header: X-CompanyCam-Signature
+      signature_algorithm: base64(HMAC-SHA1(body, webhook_token))
+      catalog: asyncapi/companycam-webhooks.yml
+- target: $.components.securitySchemes
+  update:
+    OAuth2:
+      type: oauth2
+      description: >-
+        OAuth 2.0 authorization-code grant for partner integrations (documented
+        separately from the published spec; advertised via RFC 8414 metadata).
+      flows:
+        authorizationCode:
+          authorizationUrl: https://app.companycam.com/oauth/authorize
+          tokenUrl: https://app.companycam.com/oauth/token
+          refreshUrl: https://app.companycam.com/oauth/token
+          scopes:
+            read: Global read access
+            write: Global write access
+            destroy: Global delete access
