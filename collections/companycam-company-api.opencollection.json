@@ -1,0 +1,35 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Core Checklists Company API",
+    "version": "v2"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Company",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve Company",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.companycam.com/v2/company"
+          },
+          "docs": "Retrieve Company"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,819 @@
+{
+  "item": [
+    {
+      "id": "c004e6ab-b3d3-44dd-a159-7fb4fb930752",
+      "name": "Videos",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4cbe3442-80c1-4044-9de0-f260afd4dbbc",
+          "name": "List Videos",
+          "request": {
+            "name": "List Videos",
+            "description": {
+              "content": "Returns videos visible to the authenticated user, sorted by\ncapture date (most recent first). Supports the same\nfiltering and pagination parameters as `/photos`.\n\n**Important:** Until a video's `status` is `processed`, the\n`playback_url` field returns the raw upload URL (the\n`pending_uri`) and `format` returns the file extension of\nthat URL — not the HLS playback URL or `m3u8`. Subscribe\nto the `video.updated` webhook or poll\n`GET /videos/{id}` until `status: processed` before\nconsuming `playback_url`/`format`.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "videos"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<string>",
+                  "description": "A unix timestamp to return videos captured on or after the provided value"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<string>",
+                  "description": "A unix timestamp to return videos captured on or before the provided value"
+                },
+                {
+                  "disabled": false,
+                  "key": "project_ids",
+                  "value": "<long>",
+                  "description": "Filter results to include videos captured at one of these project IDs"
+                },
+                {
+                  "disabled": false,
+                  "key": "project_ids",
+                  "value": "<long>",
+                  "description": "Filter results to include videos captured at one of these project IDs"
+                },
+                {
+                  "disabled": false,
+                  "key": "user_ids",
+                  "value": "<long>",
+                  "description": "Filter results to include videos captured by one of these user IDs"
+                },
+                {
+                  "disabled": false,
+                  "key": "user_ids",
+                  "value": "<long>",
+                  "description": "Filter results to include videos captured by one of these user IDs"
+                },
+                {
+                  "disabled": false,
+                  "key": "group_ids",
+                  "value": "<long>",
+                  "description": "Filter results to include videos captured by one of these group IDs"
+                },
+                {
+                  "disabled": false,
+                  "key": "group_ids",
+                  "value": "<long>",
+                  "description": "Filter results to include videos captured by one of these group IDs"
+                },
+                {
+                  "disabled": false,
+                  "key": "tag_ids",
+                  "value": "<long>",
+                  "description": "Filter results to include videos tagged with one of these tag IDs"
+                },
+                {
+                  "disabled": false,
+                  "key": "tag_ids",
+                  "value": "<long>",
+                  "description": "Filter results to include videos tagged with one of these tag IDs"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2beaf917-3ac0-4711-8978-754c10646ef0",
+              "name": "List of videos sorted by capture date, most recent first",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "videos"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "start_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "project_ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "project_ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "user_ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "user_ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "group_ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "group_ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "tag_ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "tag_ids",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"1138023\",\n    \"company_id\": \"8292212\",\n    \"creator_id\": \"2789583992\",\n    \"creator_type\": \"User\",\n    \"creator_name\": \"Shawn Spencer\",\n    \"project_id\": \"94772883\",\n    \"coordinates\": {\n      \"lat\": 28.425852468018288,\n      \"lon\": -81.47155671113255\n    },\n    \"status\": \"processed\",\n    \"internal\": false,\n    \"captured_at\": 1721918461,\n    \"created_at\": 1721918473,\n    \"updated_at\": 1721918492,\n    \"playback_url\": \"https://stream.mux.com/abc123.m3u8\",\n    \"format\": \"m3u8\",\n    \"thumbnail_urls\": {\n      \"large\": \"https://imgproxy.companycam.com/.../large.jpg\",\n      \"medium\": \"https://imgproxy.companycam.com/.../medium.jpg\",\n      \"small\": \"https://imgproxy.companycam.com/.../small.jpg\"\n    },\n    \"duration\": 42\n  },\n  {\n    \"id\": \"1138023\",\n    \"company_id\": \"8292212\",\n    \"creator_id\": \"2789583992\",\n    \"creator_type\": \"User\",\n    \"creator_name\": \"Shawn Spencer\",\n    \"project_id\": \"94772883\",\n    \"coordinates\": {\n      \"lat\": 28.425852468018288,\n      \"lon\": -81.47155671113255\n    },\n    \"status\": \"processed\",\n    \"internal\": false,\n    \"captured_at\": 1721918461,\n    \"created_at\": 1721918473,\n    \"updated_at\": 1721918492,\n    \"playback_url\": \"https://stream.mux.com/abc123.m3u8\",\n    \"format\": \"m3u8\",\n    \"thumbnail_urls\": {\n      \"large\": \"https://imgproxy.companycam.com/.../large.jpg\",\n      \"medium\": \"https://imgproxy.companycam.com/.../medium.jpg\",\n      \"small\": \"https://imgproxy.companycam.com/.../small.jpg\"\n    },\n    \"duration\": 42\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "879e0a6b-2ebd-443c-9a60-db8a9d8f7928",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "videos"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "start_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "project_ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "project_ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "user_ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "user_ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "group_ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "group_ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "tag_ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "tag_ids",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"Bad Request\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ec8395b7-512a-417c-89b8-0f147502a900",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "videos"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "start_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "project_ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "project_ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "user_ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "user_ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "group_ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "group_ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "tag_ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "tag_ids",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"Record not found\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f4e3e10e-ccd7-45c9-9057-cb4fda2de5af",
+              "name": "Unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "videos"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "start_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "project_ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "project_ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "user_ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "user_ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "group_ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "group_ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "tag_ids",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "tag_ids",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"An unexpected error occured\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "10e05cd9-7fea-4547-87b6-9724ea5c31de",
+          "name": "Retrieve Video",
+          "request": {
+            "name": "Retrieve Video",
+            "description": {
+              "content": "Returns details for a single video.\n\n**Important:** Until `status` is `processed`, `playback_url`\nreturns the raw upload URL (the `pending_uri`) and `format`\nreturns the file extension of that URL — not the HLS\nplayback URL or `m3u8`. Poll this endpoint until\n`status: processed` before consuming\n`playback_url`/`format`.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "videos",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<id>",
+                  "key": "id",
+                  "description": "(Required) ID of the Video"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "09b45d32-542d-48bd-af59-186981185631",
+              "name": "Details about the video",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "videos",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<id>",
+                      "key": "id",
+                      "description": "(Required) ID of the Video"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"1138023\",\n  \"company_id\": \"8292212\",\n  \"creator_id\": \"2789583992\",\n  \"creator_type\": \"User\",\n  \"creator_name\": \"Shawn Spencer\",\n  \"project_id\": \"94772883\",\n  \"coordinates\": {\n    \"lat\": 28.425852468018288,\n    \"lon\": -81.47155671113255\n  },\n  \"status\": \"processed\",\n  \"internal\": false,\n  \"captured_at\": 1721918461,\n  \"created_at\": 1721918473,\n  \"updated_at\": 1721918492,\n  \"playback_url\": \"https://stream.mux.com/abc123.m3u8\",\n  \"format\": \"m3u8\",\n  \"thumbnail_urls\": {\n    \"large\": \"https://imgproxy.companycam.com/.../large.jpg\",\n    \"medium\": \"https://imgproxy.companycam.com/.../medium.jpg\",\n    \"small\": \"https://imgproxy.companycam.com/.../small.jpg\"\n  },\n  \"duration\": 42\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6e5dbb57-ebc4-4b95-b0a9-28ac6b9e20a5",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "videos",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<id>",
+                      "key": "id",
+                      "description": "(Required) ID of the Video"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"Bad Request\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dfe3df25-799f-48ea-bc7f-e8b71ae1bdd6",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "videos",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<id>",
+                      "key": "id",
+                      "description": "(Required) ID of the Video"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"Forbidden\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d75b3bfa-0df9-40e9-bea3-e739f5ce032e",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "videos",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<id>",
+                      "key": "id",
+                      "description": "(Required) ID of the Video"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"Record not found\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d9ef32d5-5833-40e3-954f-54db69191422",
+              "name": "Unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "videos",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<id>",
+                      "key": "id",
+                      "description": "(Required) ID of the Video"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"An unexpected error occured\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.companycam.com/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1f5e509a-368e-4337-ae9d-987b8e5130f6",
+    "name": "Core Checklists Videos API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,297 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Core Checklists Photos API",
+    "version": "v2"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Photos",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Photos",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.companycam.com/v2/photos",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for offset-based pagination. Cannot be used with cursor pagination (after/before params)"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Number of results per page. Default 50, maximum 100"
+              },
+              {
+                "name": "after",
+                "value": "",
+                "type": "query",
+                "description": "Cursor for forward pagination. Comes from X-Next-Cursor header value. Returns results after this cursor position. Cannot be used with 'before' or 'page'"
+              },
+              {
+                "name": "before",
+                "value": "",
+                "type": "query",
+                "description": "Cursor for backward pagination. Comes from X-Prev-Cursor header value. Returns results before this cursor position. Cannot be used with 'after' or 'page'"
+              },
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "A unix timestamp to return photos captured on or after the provided value"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "A unix timestamp to return photos captured on or before the provided value"
+              },
+              {
+                "name": "project_ids",
+                "value": "",
+                "type": "query",
+                "description": "Filter results to include photos from one of these project IDs"
+              },
+              {
+                "name": "user_ids",
+                "value": "",
+                "type": "query",
+                "description": "Filter results to include photos captured by one of these user IDs"
+              },
+              {
+                "name": "group_ids",
+                "value": "",
+                "type": "query",
+                "description": "Filter results to include photos captured by users in one of these group IDs"
+              },
+              {
+                "name": "tag_ids",
+                "value": "",
+                "type": "query",
+                "description": "Filter results to include photos with one of these tag IDs"
+              }
+            ]
+          },
+          "docs": "List Photos"
+        },
+        {
+          "info": {
+            "name": "Retrieve Photo",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.companycam.com/v2/photos/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Photo"
+              }
+            ]
+          },
+          "docs": "Retrieve Photo"
+        },
+        {
+          "info": {
+            "name": "Update Photo",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.companycam.com/v2/photos/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Photo"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Photo"
+        },
+        {
+          "info": {
+            "name": "Delete Photo",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.companycam.com/v2/photos/:id",
+            "headers": [
+              {
+                "name": "X-CompanyCam-User",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Photo"
+              }
+            ]
+          },
+          "docs": "Delete Photo"
+        },
+        {
+          "info": {
+            "name": "List Photo Tags",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.companycam.com/v2/photos/:photo_id/tags",
+            "params": [
+              {
+                "name": "photo_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Photo"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Photo Tags"
+        },
+        {
+          "info": {
+            "name": "Add Tags",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.companycam.com/v2/photos/:photo_id/tags",
+            "params": [
+              {
+                "name": "photo_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Photo"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Tags"
+        },
+        {
+          "info": {
+            "name": "List Photo Comments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.companycam.com/v2/photos/:photo_id/comments",
+            "params": [
+              {
+                "name": "photo_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Photo"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Photo Comments"
+        },
+        {
+          "info": {
+            "name": "Add Comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.companycam.com/v2/photos/:photo_id/comments",
+            "headers": [
+              {
+                "name": "X-CompanyCam-User",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "photo_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Photo"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Comment"
+        },
+        {
+          "info": {
+            "name": "Update Photo Description",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.companycam.com/v2/photos/:photo_id/descriptions",
+            "params": [
+              {
+                "name": "photo_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Photo"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Photo Description"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

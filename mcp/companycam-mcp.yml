@@ -197,3 +197,9 @@ tools:
 - name: deleteWebhook
   description: Delete Webhook
   source_operation: openapi/companycam-openapi-original.yml#deleteWebhook
+deployment:
+  mode: none
+  verified: derived
+  tools: 62
+  checked: '2026-08-12'
+  source: catalog MCP census

@@ -1,0 +1,1359 @@
+{
+  "item": [
+    {
+      "id": "62e565e5-69ee-41bd-b849-ee5abd2b4af5",
+      "name": "Groups",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2553113f-0e93-4087-a4e2-f5ef059e7996",
+          "name": "List Groups",
+          "request": {
+            "name": "List Groups",
+            "description": {},
+            "url": {
+              "path": [
+                "groups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5c63c040-7607-4bad-91bd-2ecc320f9a2f",
+              "name": "List of groups sorted alphabetically",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"3992883\",\n    \"company_id\": \"8292212\",\n    \"name\": \"The Psych Crew\",\n    \"users\": [\n      {\n        \"id\": \"2789583992\",\n        \"company_id\": \"8292212\",\n        \"email_address\": \"shawn@psych.co\",\n        \"status\": \"active\",\n        \"first_name\": \"Shawn\",\n        \"last_name\": \"Spencer\",\n        \"profile_image\": [\n          {\n            \"type\": \"original\",\n            \"uri\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\",\n            \"url\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\"\n          },\n          {\n            \"type\": \"original\",\n            \"uri\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\",\n            \"url\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\"\n          }\n        ],\n        \"phone_number\": \"4025551212\",\n        \"created_at\": 1490737206,\n        \"updated_at\": 1490737206,\n        \"user_url\": \"https://app.companycam.com/users/1234\"\n      },\n      {\n        \"id\": \"2789583992\",\n        \"company_id\": \"8292212\",\n        \"email_address\": \"shawn@psych.co\",\n        \"status\": \"active\",\n        \"first_name\": \"Shawn\",\n        \"last_name\": \"Spencer\",\n        \"profile_image\": [\n          {\n            \"type\": \"original\",\n            \"uri\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\",\n            \"url\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\"\n          },\n          {\n            \"type\": \"original\",\n            \"uri\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\",\n            \"url\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\"\n          }\n        ],\n        \"phone_number\": \"4025551212\",\n        \"created_at\": 1490737206,\n        \"updated_at\": 1490737206,\n        \"user_url\": \"https://app.companycam.com/users/1234\"\n      }\n    ],\n    \"status\": \"active\",\n    \"group_url\": \"https://app.companycam.com/groups/1234\",\n    \"created_at\": 1490737206,\n    \"updated_at\": 1490737744\n  },\n  {\n    \"id\": \"3992883\",\n    \"company_id\": \"8292212\",\n    \"name\": \"The Psych Crew\",\n    \"users\": [\n      {\n        \"id\": \"2789583992\",\n        \"company_id\": \"8292212\",\n        \"email_address\": \"shawn@psych.co\",\n        \"status\": \"active\",\n        \"first_name\": \"Shawn\",\n        \"last_name\": \"Spencer\",\n        \"profile_image\": [\n          {\n            \"type\": \"original\",\n            \"uri\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\",\n            \"url\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\"\n          },\n          {\n            \"type\": \"original\",\n            \"uri\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\",\n            \"url\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\"\n          }\n        ],\n        \"phone_number\": \"4025551212\",\n        \"created_at\": 1490737206,\n        \"updated_at\": 1490737206,\n        \"user_url\": \"https://app.companycam.com/users/1234\"\n      },\n      {\n        \"id\": \"2789583992\",\n        \"company_id\": \"8292212\",\n        \"email_address\": \"shawn@psych.co\",\n        \"status\": \"active\",\n        \"first_name\": \"Shawn\",\n        \"last_name\": \"Spencer\",\n        \"profile_image\": [\n          {\n            \"type\": \"original\",\n            \"uri\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\",\n            \"url\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\"\n          },\n          {\n            \"type\": \"original\",\n            \"uri\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\",\n            \"url\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\"\n          }\n        ],\n        \"phone_number\": \"4025551212\",\n        \"created_at\": 1490737206,\n        \"updated_at\": 1490737206,\n        \"user_url\": \"https://app.companycam.com/users/1234\"\n      }\n    ],\n    \"status\": \"active\",\n    \"group_url\": \"https://app.companycam.com/groups/1234\",\n    \"created_at\": 1490737206,\n    \"updated_at\": 1490737744\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1150fd44-e4f4-43f4-9c5f-018a1f51f331",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"Bad Request\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6f6b7066-1a93-4db7-8dd9-7be4cf5d435b",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"Record not found\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "45d6d3d6-fd1d-4c7d-b3de-784021b45643",
+              "name": "Unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"An unexpected error occured\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2ba98063-c300-4534-a63d-6219e4550974",
+          "name": "Create Group",
+          "request": {
+            "name": "Create Group",
+            "description": {},
+            "url": {
+              "path": [
+                "groups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Email of CompanyCam user to be designated as the creator",
+                "key": "X-CompanyCam-User",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"group\": {\n    \"name\": \"<string>\",\n    \"users\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "44f0fb50-7aeb-470c-ac22-cbc914dc4237",
+              "name": "The created group",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Email of CompanyCam user to be designated as the creator",
+                    "key": "X-CompanyCam-User",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"group\": {\n    \"name\": \"<string>\",\n    \"users\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"3992883\",\n  \"company_id\": \"8292212\",\n  \"name\": \"The Psych Crew\",\n  \"users\": [\n    {\n      \"id\": \"2789583992\",\n      \"company_id\": \"8292212\",\n      \"email_address\": \"shawn@psych.co\",\n      \"status\": \"active\",\n      \"first_name\": \"Shawn\",\n      \"last_name\": \"Spencer\",\n      \"profile_image\": [\n        {\n          \"type\": \"original\",\n          \"uri\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\",\n          \"url\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\"\n        },\n        {\n          \"type\": \"original\",\n          \"uri\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\",\n          \"url\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\"\n        }\n      ],\n      \"phone_number\": \"4025551212\",\n      \"created_at\": 1490737206,\n      \"updated_at\": 1490737206,\n      \"user_url\": \"https://app.companycam.com/users/1234\"\n    },\n    {\n      \"id\": \"2789583992\",\n      \"company_id\": \"8292212\",\n      \"email_address\": \"shawn@psych.co\",\n      \"status\": \"active\",\n      \"first_name\": \"Shawn\",\n      \"last_name\": \"Spencer\",\n      \"profile_image\": [\n        {\n          \"type\": \"original\",\n          \"uri\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\",\n          \"url\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\"\n        },\n        {\n          \"type\": \"original\",\n          \"uri\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\",\n          \"url\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\"\n        }\n      ],\n      \"phone_number\": \"4025551212\",\n      \"created_at\": 1490737206,\n      \"updated_at\": 1490737206,\n      \"user_url\": \"https://app.companycam.com/users/1234\"\n    }\n  ],\n  \"status\": \"active\",\n  \"group_url\": \"https://app.companycam.com/groups/1234\",\n  \"created_at\": 1490737206,\n  \"updated_at\": 1490737744\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "252b4387-41e1-45c7-a65b-5533da9d0106",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Email of CompanyCam user to be designated as the creator",
+                    "key": "X-CompanyCam-User",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"group\": {\n    \"name\": \"<string>\",\n    \"users\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"Bad Request\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0b556ddb-21a0-4783-92f6-9750e65bb6f0",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Email of CompanyCam user to be designated as the creator",
+                    "key": "X-CompanyCam-User",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"group\": {\n    \"name\": \"<string>\",\n    \"users\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"Record not found\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b66b7c91-4905-4f48-af38-c22a2b3d5500",
+              "name": "Unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Email of CompanyCam user to be designated as the creator",
+                    "key": "X-CompanyCam-User",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"group\": {\n    \"name\": \"<string>\",\n    \"users\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"An unexpected error occured\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a19ca0f0-401d-4866-ba26-96992914f243",
+          "name": "Retrieve Group",
+          "request": {
+            "name": "Retrieve Group",
+            "description": {},
+            "url": {
+              "path": [
+                "groups",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<id>",
+                  "key": "id",
+                  "description": "(Required) ID of the Group"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d855f49b-56bd-41d5-8ce7-e7cb54ec61aa",
+              "name": "Details about the group",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<id>",
+                      "key": "id",
+                      "description": "(Required) ID of the Group"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"3992883\",\n  \"company_id\": \"8292212\",\n  \"name\": \"The Psych Crew\",\n  \"users\": [\n    {\n      \"id\": \"2789583992\",\n      \"company_id\": \"8292212\",\n      \"email_address\": \"shawn@psych.co\",\n      \"status\": \"active\",\n      \"first_name\": \"Shawn\",\n      \"last_name\": \"Spencer\",\n      \"profile_image\": [\n        {\n          \"type\": \"original\",\n          \"uri\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\",\n          \"url\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\"\n        },\n        {\n          \"type\": \"original\",\n          \"uri\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\",\n          \"url\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\"\n        }\n      ],\n      \"phone_number\": \"4025551212\",\n      \"created_at\": 1490737206,\n      \"updated_at\": 1490737206,\n      \"user_url\": \"https://app.companycam.com/users/1234\"\n    },\n    {\n      \"id\": \"2789583992\",\n      \"company_id\": \"8292212\",\n      \"email_address\": \"shawn@psych.co\",\n      \"status\": \"active\",\n      \"first_name\": \"Shawn\",\n      \"last_name\": \"Spencer\",\n      \"profile_image\": [\n        {\n          \"type\": \"original\",\n          \"uri\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\",\n          \"url\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\"\n        },\n        {\n          \"type\": \"original\",\n          \"uri\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\",\n          \"url\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\"\n        }\n      ],\n      \"phone_number\": \"4025551212\",\n      \"created_at\": 1490737206,\n      \"updated_at\": 1490737206,\n      \"user_url\": \"https://app.companycam.com/users/1234\"\n    }\n  ],\n  \"status\": \"active\",\n  \"group_url\": \"https://app.companycam.com/groups/1234\",\n  \"created_at\": 1490737206,\n  \"updated_at\": 1490737744\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d0ad3f94-1526-439b-8d03-57bcc1da279c",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<id>",
+                      "key": "id",
+                      "description": "(Required) ID of the Group"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"Bad Request\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "def661e2-25c9-4fcc-b64a-8b05f92f8ff9",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<id>",
+                      "key": "id",
+                      "description": "(Required) ID of the Group"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"Record not found\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bcce1d1a-ab6b-4e02-837c-7be1dae80e25",
+              "name": "Unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<id>",
+                      "key": "id",
+                      "description": "(Required) ID of the Group"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"An unexpected error occured\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d6bbfc92-f0df-4dcc-aa9b-4bd9968fbac7",
+          "name": "Update Group",
+          "request": {
+            "name": "Update Group",
+            "description": {},
+            "url": {
+              "path": [
+                "groups",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<id>",
+                  "key": "id",
+                  "description": "(Required) ID of the Group"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"group\": {\n    \"name\": \"<string>\",\n    \"users\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f4f70f5a-18c0-430c-a4a2-bd64f50fe5e1",
+              "name": "The updated group",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<id>",
+                      "key": "id",
+                      "description": "(Required) ID of the Group"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"group\": {\n    \"name\": \"<string>\",\n    \"users\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"3992883\",\n  \"company_id\": \"8292212\",\n  \"name\": \"The Psych Crew\",\n  \"users\": [\n    {\n      \"id\": \"2789583992\",\n      \"company_id\": \"8292212\",\n      \"email_address\": \"shawn@psych.co\",\n      \"status\": \"active\",\n      \"first_name\": \"Shawn\",\n      \"last_name\": \"Spencer\",\n      \"profile_image\": [\n        {\n          \"type\": \"original\",\n          \"uri\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\",\n          \"url\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\"\n        },\n        {\n          \"type\": \"original\",\n          \"uri\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\",\n          \"url\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\"\n        }\n      ],\n      \"phone_number\": \"4025551212\",\n      \"created_at\": 1490737206,\n      \"updated_at\": 1490737206,\n      \"user_url\": \"https://app.companycam.com/users/1234\"\n    },\n    {\n      \"id\": \"2789583992\",\n      \"company_id\": \"8292212\",\n      \"email_address\": \"shawn@psych.co\",\n      \"status\": \"active\",\n      \"first_name\": \"Shawn\",\n      \"last_name\": \"Spencer\",\n      \"profile_image\": [\n        {\n          \"type\": \"original\",\n          \"uri\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\",\n          \"url\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\"\n        },\n        {\n          \"type\": \"original\",\n          \"uri\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\",\n          \"url\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\"\n        }\n      ],\n      \"phone_number\": \"4025551212\",\n      \"created_at\": 1490737206,\n      \"updated_at\": 1490737206,\n      \"user_url\": \"https://app.companycam.com/users/1234\"\n    }\n  ],\n  \"status\": \"active\",\n  \"group_url\": \"https://app.companycam.com/groups/1234\",\n  \"created_at\": 1490737206,\n  \"updated_at\": 1490737744\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fc59ad8c-0c64-4346-8c0b-267e3d48b88c",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<id>",
+                      "key": "id",
+                      "description": "(Required) ID of the Group"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"group\": {\n    \"name\": \"<string>\",\n    \"users\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"Bad Request\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fbd9020f-5694-44d7-85b3-9cf34c87dc69",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<id>",
+                      "key": "id",
+                      "description": "(Required) ID of the Group"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"group\": {\n    \"name\": \"<string>\",\n    \"users\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"Record not found\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3c9d16f6-7cfe-4662-9c9d-2275e1a52dc0",
+              "name": "Unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<id>",
+                      "key": "id",
+                      "description": "(Required) ID of the Group"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"group\": {\n    \"name\": \"<string>\",\n    \"users\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"An unexpected error occured\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e3ad36a0-3276-404f-b6a1-2dd239f9f78e",
+          "name": "Delete a Group",
+          "request": {
+            "name": "Delete a Group",
+            "description": {},
+            "url": {
+              "path": [
+                "groups",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<id>",
+                  "key": "id",
+                  "description": "(Required) ID of the Group"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8255d069-8e0c-43a0-a763-c653d9cd04ee",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<id>",
+                      "key": "id",
+                      "description": "(Required) ID of the Group"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e7114d31-fffc-4225-bff1-be06ac752fa9",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<id>",
+                      "key": "id",
+                      "description": "(Required) ID of the Group"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"Bad Request\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6b80f8a8-6a51-43c2-845b-10d37fbd06ea",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<id>",
+                      "key": "id",
+                      "description": "(Required) ID of the Group"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"Record not found\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fcb47c79-d78a-4191-b0fd-f6a61f74dd4b",
+              "name": "Unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "groups",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<id>",
+                      "key": "id",
+                      "description": "(Required) ID of the Group"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"An unexpected error occured\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.companycam.com/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "53be24b7-0386-48d6-a457-095e81bbcff9",
+    "name": "Core Checklists Groups API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

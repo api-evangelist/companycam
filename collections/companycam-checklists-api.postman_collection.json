@@ -1,0 +1,313 @@
+{
+  "item": [
+    {
+      "id": "294ad327-7f45-4d68-b030-c60f59598944",
+      "name": "Checklists",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0f561268-be8a-4a3a-bbbb-1d705f6f62ff",
+          "name": "List All Checklists",
+          "request": {
+            "name": "List All Checklists",
+            "description": {},
+            "url": {
+              "path": [
+                "checklists"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "completed",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "30dc9a93-c4a1-4224-8851-b84395652eb8",
+              "name": "List of checklists sorted by last updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "checklists"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "completed",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"4782987471\",\n    \"company_id\": \"8292212\",\n    \"project_id\": \"812\",\n    \"name\": \"Roof state survey\",\n    \"created_at\": 1152230608,\n    \"updated_at\": 1152230400,\n    \"completed_at\": 1232230400,\n    \"creator_id\": \"314\",\n    \"checklist_template_id\": \"4156\",\n    \"is_populating\": false,\n    \"sectionless_tasks\": [\n      {\n        \"id\": \"4782987471\",\n        \"completed_at\": 1152230608,\n        \"completed_by_id\": \"14365\",\n        \"completed_by_type\": \"User\",\n        \"created_at\": 1152230608,\n        \"creator_id\": \"314\",\n        \"creator_type\": \"User\",\n        \"details\": \"Check the roof for leaks\",\n        \"photo_capture_required\": true,\n        \"position\": 2,\n        \"todo_list_id\": \"4782987471\",\n        \"todo_list_section_id\": \"12663\",\n        \"title\": \"Check the roof\",\n        \"updated_at\": 1152230608,\n        \"sub_tasks\": [\n          {\n            \"id\": \"4782987471\",\n            \"label\": \"Check the roof\",\n            \"answer_type\": \"open_text\",\n            \"answer_choices\": [\n              0,\n              2\n            ],\n            \"answer_options\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"position\": 2,\n            \"task_id\": \"4782987471\",\n            \"answer_text\": \"It was a pretty ok task\"\n          },\n          {\n            \"id\": \"4782987471\",\n            \"label\": \"Check the roof\",\n            \"answer_type\": \"open_text\",\n            \"answer_choices\": [\n              0,\n              2\n            ],\n            \"answer_options\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"position\": 2,\n            \"task_id\": \"4782987471\",\n            \"answer_text\": \"It was a pretty ok task\"\n          }\n        ],\n        \"photos\": [\n          {\n            \"id\": \"4782987471\",\n            \"company_id\": \"8292212\",\n            \"creator_id\": \"2789583992\",\n            \"creator_type\": \"User\",\n            \"creator_name\": \"Shawn Spencer\",\n            \"project_id\": \"94772883\",\n            \"processing_status\": \"processed\",\n            \"status\": \"active\",\n            \"coordinates\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"uris\": [\n              {\n                \"type\": \"original\",\n                \"url\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\"\n              },\n              {\n                \"type\": \"web\",\n                \"url\": \"https://static.companycam.com/VuS0rPvrnNA1490797262web.jpg\"\n              },\n              {\n                \"type\": \"thumbnail\",\n                \"url\": \"https://static.companycam.com/VuS0rPvrnNA1490797262small.jpg\"\n              }\n            ],\n            \"hash\": \"00ab337b7399151e5d4aa3bd4226e8dd\",\n            \"description\": \"The front of the house\",\n            \"internal\": false,\n            \"photo_url\": \"https://app.companycam.com/photos/8675309\",\n            \"captured_at\": 1152230396,\n            \"created_at\": 1152230608,\n            \"updated_at\": 1152230400\n          },\n          {\n            \"id\": \"4782987471\",\n            \"company_id\": \"8292212\",\n            \"creator_id\": \"2789583992\",\n            \"creator_type\": \"User\",\n            \"creator_name\": \"Shawn Spencer\",\n            \"project_id\": \"94772883\",\n            \"processing_status\": \"processed\",\n            \"status\": \"active\",\n            \"coordinates\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"uris\": [\n              {\n                \"type\": \"original\",\n                \"url\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\"\n              },\n              {\n                \"type\": \"web\",\n                \"url\": \"https://static.companycam.com/VuS0rPvrnNA1490797262web.jpg\"\n              },\n              {\n                \"type\": \"thumbnail\",\n                \"url\": \"https://static.companycam.com/VuS0rPvrnNA1490797262small.jpg\"\n              }\n            ],\n            \"hash\": \"00ab337b7399151e5d4aa3bd4226e8dd\",\n            \"description\": \"The front of the house\",\n            \"internal\": false,\n            \"photo_url\": \"https://app.companycam.com/photos/8675309\",\n            \"captured_at\": 1152230396,\n            \"created_at\": 1152230608,\n            \"updated_at\": 1152230400\n          }\n        ]\n      },\n      {\n        \"id\": \"4782987471\",\n        \"completed_at\": 1152230608,\n        \"completed_by_id\": \"14365\",\n        \"completed_by_type\": \"User\",\n        \"created_at\": 1152230608,\n        \"creator_id\": \"314\",\n        \"creator_type\": \"User\",\n        \"details\": \"Check the roof for leaks\",\n        \"photo_capture_required\": true,\n        \"position\": 2,\n        \"todo_list_id\": \"4782987471\",\n        \"todo_list_section_id\": \"12663\",\n        \"title\": \"Check the roof\",\n        \"updated_at\": 1152230608,\n        \"sub_tasks\": [\n          {\n            \"id\": \"4782987471\",\n            \"label\": \"Check the roof\",\n            \"answer_type\": \"open_text\",\n            \"answer_choices\": [\n              0,\n              2\n            ],\n            \"answer_options\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"position\": 2,\n            \"task_id\": \"4782987471\",\n            \"answer_text\": \"It was a pretty ok task\"\n          },\n          {\n            \"id\": \"4782987471\",\n            \"label\": \"Check the roof\",\n            \"answer_type\": \"open_text\",\n            \"answer_choices\": [\n              0,\n              2\n            ],\n            \"answer_options\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"position\": 2,\n            \"task_id\": \"4782987471\",\n            \"answer_text\": \"It was a pretty ok task\"\n          }\n        ],\n        \"photos\": [\n          {\n            \"id\": \"4782987471\",\n            \"company_id\": \"8292212\",\n            \"creator_id\": \"2789583992\",\n            \"creator_type\": \"User\",\n            \"creator_name\": \"Shawn Spencer\",\n            \"project_id\": \"94772883\",\n            \"processing_status\": \"processed\",\n            \"status\": \"active\",\n            \"coordinates\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"uris\": [\n              {\n                \"type\": \"original\",\n                \"url\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\"\n              },\n              {\n                \"type\": \"web\",\n                \"url\": \"https://static.companycam.com/VuS0rPvrnNA1490797262web.jpg\"\n              },\n              {\n                \"type\": \"thumbnail\",\n                \"url\": \"https://static.companycam.com/VuS0rPvrnNA1490797262small.jpg\"\n              }\n            ],\n            \"hash\": \"00ab337b7399151e5d4aa3bd4226e8dd\",\n            \"description\": \"The front of the house\",\n            \"internal\": false,\n            \"photo_url\": \"https://app.companycam.com/photos/8675309\",\n            \"captured_at\": 1152230396,\n            \"created_at\": 1152230608,\n            \"updated_at\": 1152230400\n          },\n          {\n            \"id\": \"4782987471\",\n            \"company_id\": \"8292212\",\n            \"creator_id\": \"2789583992\",\n            \"creator_type\": \"User\",\n            \"creator_name\": \"Shawn Spencer\",\n            \"project_id\": \"94772883\",\n            \"processing_status\": \"processed\",\n            \"status\": \"active\",\n            \"coordinates\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"uris\": [\n              {\n                \"type\": \"original\",\n                \"url\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\"\n              },\n              {\n                \"type\": \"web\",\n                \"url\": \"https://static.companycam.com/VuS0rPvrnNA1490797262web.jpg\"\n              },\n              {\n                \"type\": \"thumbnail\",\n                \"url\": \"https://static.companycam.com/VuS0rPvrnNA1490797262small.jpg\"\n              }\n            ],\n            \"hash\": \"00ab337b7399151e5d4aa3bd4226e8dd\",\n            \"description\": \"The front of the house\",\n            \"internal\": false,\n            \"photo_url\": \"https://app.companycam.com/photos/8675309\",\n            \"captured_at\": 1152230396,\n            \"created_at\": 1152230608,\n            \"updated_at\": 1152230400\n          }\n        ]\n      }\n    ],\n    \"sections\": [\n      {\n        \"id\": \"4782987471\",\n        \"todo_list_id\": \"8292212\",\n        \"creator_id\": \"314\",\n        \"creator_type\": \"User\",\n        \"creator_name\": \"314\",\n        \"title\": \"Section #1\",\n        \"position\": 6318,\n        \"tasks\": [\n          {\n            \"id\": \"4782987471\",\n            \"completed_at\": 1152230608,\n            \"completed_by_id\": \"14365\",\n            \"completed_by_type\": \"User\",\n            \"created_at\": 1152230608,\n            \"creator_id\": \"314\",\n            \"creator_type\": \"User\",\n            \"details\": \"Check the roof for leaks\",\n            \"photo_capture_required\": true,\n            \"position\": 2,\n            \"todo_list_id\": \"4782987471\",\n            \"todo_list_section_id\": \"12663\",\n            \"title\": \"Check the roof\",\n            \"updated_at\": 1152230608,\n            \"sub_tasks\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"photos\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"id\": \"4782987471\",\n            \"completed_at\": 1152230608,\n            \"completed_by_id\": \"14365\",\n            \"completed_by_type\": \"User\",\n            \"created_at\": 1152230608,\n            \"creator_id\": \"314\",\n            \"creator_type\": \"User\",\n            \"details\": \"Check the roof for leaks\",\n            \"photo_capture_required\": true,\n            \"position\": 2,\n            \"todo_list_id\": \"4782987471\",\n            \"todo_list_section_id\": \"12663\",\n            \"title\": \"Check the roof\",\n            \"updated_at\": 1152230608,\n            \"sub_tasks\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"photos\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      {\n        \"id\": \"4782987471\",\n        \"todo_list_id\": \"8292212\",\n        \"creator_id\": \"314\",\n        \"creator_type\": \"User\",\n        \"creator_name\": \"314\",\n        \"title\": \"Section #1\",\n        \"position\": 9490,\n        \"tasks\": [\n          {\n            \"id\": \"4782987471\",\n            \"completed_at\": 1152230608,\n            \"completed_by_id\": \"14365\",\n            \"completed_by_type\": \"User\",\n            \"created_at\": 1152230608,\n            \"creator_id\": \"314\",\n            \"creator_type\": \"User\",\n            \"details\": \"Check the roof for leaks\",\n            \"photo_capture_required\": true,\n            \"position\": 2,\n            \"todo_list_id\": \"4782987471\",\n            \"todo_list_section_id\": \"12663\",\n            \"title\": \"Check the roof\",\n            \"updated_at\": 1152230608,\n            \"sub_tasks\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"photos\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"id\": \"4782987471\",\n            \"completed_at\": 1152230608,\n            \"completed_by_id\": \"14365\",\n            \"completed_by_type\": \"User\",\n            \"created_at\": 1152230608,\n            \"creator_id\": \"314\",\n            \"creator_type\": \"User\",\n            \"details\": \"Check the roof for leaks\",\n            \"photo_capture_required\": true,\n            \"position\": 2,\n            \"todo_list_id\": \"4782987471\",\n            \"todo_list_section_id\": \"12663\",\n            \"title\": \"Check the roof\",\n            \"updated_at\": 1152230608,\n            \"sub_tasks\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"photos\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      }\n    ]\n  },\n  {\n    \"id\": \"4782987471\",\n    \"company_id\": \"8292212\",\n    \"project_id\": \"812\",\n    \"name\": \"Roof state survey\",\n    \"created_at\": 1152230608,\n    \"updated_at\": 1152230400,\n    \"completed_at\": 1232230400,\n    \"creator_id\": \"314\",\n    \"checklist_template_id\": \"4156\",\n    \"is_populating\": false,\n    \"sectionless_tasks\": [\n      {\n        \"id\": \"4782987471\",\n        \"completed_at\": 1152230608,\n        \"completed_by_id\": \"14365\",\n        \"completed_by_type\": \"User\",\n        \"created_at\": 1152230608,\n        \"creator_id\": \"314\",\n        \"creator_type\": \"User\",\n        \"details\": \"Check the roof for leaks\",\n        \"photo_capture_required\": true,\n        \"position\": 2,\n        \"todo_list_id\": \"4782987471\",\n        \"todo_list_section_id\": \"12663\",\n        \"title\": \"Check the roof\",\n        \"updated_at\": 1152230608,\n        \"sub_tasks\": [\n          {\n            \"id\": \"4782987471\",\n            \"label\": \"Check the roof\",\n            \"answer_type\": \"open_text\",\n            \"answer_choices\": [\n              0,\n              2\n            ],\n            \"answer_options\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"position\": 2,\n            \"task_id\": \"4782987471\",\n            \"answer_text\": \"It was a pretty ok task\"\n          },\n          {\n            \"id\": \"4782987471\",\n            \"label\": \"Check the roof\",\n            \"answer_type\": \"open_text\",\n            \"answer_choices\": [\n              0,\n              2\n            ],\n            \"answer_options\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"position\": 2,\n            \"task_id\": \"4782987471\",\n            \"answer_text\": \"It was a pretty ok task\"\n          }\n        ],\n        \"photos\": [\n          {\n            \"id\": \"4782987471\",\n            \"company_id\": \"8292212\",\n            \"creator_id\": \"2789583992\",\n            \"creator_type\": \"User\",\n            \"creator_name\": \"Shawn Spencer\",\n            \"project_id\": \"94772883\",\n            \"processing_status\": \"processed\",\n            \"status\": \"active\",\n            \"coordinates\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"uris\": [\n              {\n                \"type\": \"original\",\n                \"url\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\"\n              },\n              {\n                \"type\": \"web\",\n                \"url\": \"https://static.companycam.com/VuS0rPvrnNA1490797262web.jpg\"\n              },\n              {\n                \"type\": \"thumbnail\",\n                \"url\": \"https://static.companycam.com/VuS0rPvrnNA1490797262small.jpg\"\n              }\n            ],\n            \"hash\": \"00ab337b7399151e5d4aa3bd4226e8dd\",\n            \"description\": \"The front of the house\",\n            \"internal\": false,\n            \"photo_url\": \"https://app.companycam.com/photos/8675309\",\n            \"captured_at\": 1152230396,\n            \"created_at\": 1152230608,\n            \"updated_at\": 1152230400\n          },\n          {\n            \"id\": \"4782987471\",\n            \"company_id\": \"8292212\",\n            \"creator_id\": \"2789583992\",\n            \"creator_type\": \"User\",\n            \"creator_name\": \"Shawn Spencer\",\n            \"project_id\": \"94772883\",\n            \"processing_status\": \"processed\",\n            \"status\": \"active\",\n            \"coordinates\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"uris\": [\n              {\n                \"type\": \"original\",\n                \"url\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\"\n              },\n              {\n                \"type\": \"web\",\n                \"url\": \"https://static.companycam.com/VuS0rPvrnNA1490797262web.jpg\"\n              },\n              {\n                \"type\": \"thumbnail\",\n                \"url\": \"https://static.companycam.com/VuS0rPvrnNA1490797262small.jpg\"\n              }\n            ],\n            \"hash\": \"00ab337b7399151e5d4aa3bd4226e8dd\",\n            \"description\": \"The front of the house\",\n            \"internal\": false,\n            \"photo_url\": \"https://app.companycam.com/photos/8675309\",\n            \"captured_at\": 1152230396,\n            \"created_at\": 1152230608,\n            \"updated_at\": 1152230400\n          }\n        ]\n      },\n      {\n        \"id\": \"4782987471\",\n        \"completed_at\": 1152230608,\n        \"completed_by_id\": \"14365\",\n        \"completed_by_type\": \"User\",\n        \"created_at\": 1152230608,\n        \"creator_id\": \"314\",\n        \"creator_type\": \"User\",\n        \"details\": \"Check the roof for leaks\",\n        \"photo_capture_required\": true,\n        \"position\": 2,\n        \"todo_list_id\": \"4782987471\",\n        \"todo_list_section_id\": \"12663\",\n        \"title\": \"Check the roof\",\n        \"updated_at\": 1152230608,\n        \"sub_tasks\": [\n          {\n            \"id\": \"4782987471\",\n            \"label\": \"Check the roof\",\n            \"answer_type\": \"open_text\",\n            \"answer_choices\": [\n              0,\n              2\n            ],\n            \"answer_options\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"position\": 2,\n            \"task_id\": \"4782987471\",\n            \"answer_text\": \"It was a pretty ok task\"\n          },\n          {\n            \"id\": \"4782987471\",\n            \"label\": \"Check the roof\",\n            \"answer_type\": \"open_text\",\n            \"answer_choices\": [\n              0,\n              2\n            ],\n            \"answer_options\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"position\": 2,\n            \"task_id\": \"4782987471\",\n            \"answer_text\": \"It was a pretty ok task\"\n          }\n        ],\n        \"photos\": [\n          {\n            \"id\": \"4782987471\",\n            \"company_id\": \"8292212\",\n            \"creator_id\": \"2789583992\",\n            \"creator_type\": \"User\",\n            \"creator_name\": \"Shawn Spencer\",\n            \"project_id\": \"94772883\",\n            \"processing_status\": \"processed\",\n            \"status\": \"active\",\n            \"coordinates\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"uris\": [\n              {\n                \"type\": \"original\",\n                \"url\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\"\n              },\n              {\n                \"type\": \"web\",\n                \"url\": \"https://static.companycam.com/VuS0rPvrnNA1490797262web.jpg\"\n              },\n              {\n                \"type\": \"thumbnail\",\n                \"url\": \"https://static.companycam.com/VuS0rPvrnNA1490797262small.jpg\"\n              }\n            ],\n            \"hash\": \"00ab337b7399151e5d4aa3bd4226e8dd\",\n            \"description\": \"The front of the house\",\n            \"internal\": false,\n            \"photo_url\": \"https://app.companycam.com/photos/8675309\",\n            \"captured_at\": 1152230396,\n            \"created_at\": 1152230608,\n            \"updated_at\": 1152230400\n          },\n          {\n            \"id\": \"4782987471\",\n            \"company_id\": \"8292212\",\n            \"creator_id\": \"2789583992\",\n            \"creator_type\": \"User\",\n            \"creator_name\": \"Shawn Spencer\",\n            \"project_id\": \"94772883\",\n            \"processing_status\": \"processed\",\n            \"status\": \"active\",\n            \"coordinates\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"uris\": [\n              {\n                \"type\": \"original\",\n                \"url\": \"https://static.companycam.com/VuS0rPvrnNA1490797262.jpg\"\n              },\n              {\n                \"type\": \"web\",\n                \"url\": \"https://static.companycam.com/VuS0rPvrnNA1490797262web.jpg\"\n              },\n              {\n                \"type\": \"thumbnail\",\n                \"url\": \"https://static.companycam.com/VuS0rPvrnNA1490797262small.jpg\"\n              }\n            ],\n            \"hash\": \"00ab337b7399151e5d4aa3bd4226e8dd\",\n            \"description\": \"The front of the house\",\n            \"internal\": false,\n            \"photo_url\": \"https://app.companycam.com/photos/8675309\",\n            \"captured_at\": 1152230396,\n            \"created_at\": 1152230608,\n            \"updated_at\": 1152230400\n          }\n        ]\n      }\n    ],\n    \"sections\": [\n      {\n        \"id\": \"4782987471\",\n        \"todo_list_id\": \"8292212\",\n        \"creator_id\": \"314\",\n        \"creator_type\": \"User\",\n        \"creator_name\": \"314\",\n        \"title\": \"Section #1\",\n        \"position\": 809,\n        \"tasks\": [\n          {\n            \"id\": \"4782987471\",\n            \"completed_at\": 1152230608,\n            \"completed_by_id\": \"14365\",\n            \"completed_by_type\": \"User\",\n            \"created_at\": 1152230608,\n            \"creator_id\": \"314\",\n            \"creator_type\": \"User\",\n            \"details\": \"Check the roof for leaks\",\n            \"photo_capture_required\": true,\n            \"position\": 2,\n            \"todo_list_id\": \"4782987471\",\n            \"todo_list_section_id\": \"12663\",\n            \"title\": \"Check the roof\",\n            \"updated_at\": 1152230608,\n            \"sub_tasks\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"photos\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"id\": \"4782987471\",\n            \"completed_at\": 1152230608,\n            \"completed_by_id\": \"14365\",\n            \"completed_by_type\": \"User\",\n            \"created_at\": 1152230608,\n            \"creator_id\": \"314\",\n            \"creator_type\": \"User\",\n            \"details\": \"Check the roof for leaks\",\n            \"photo_capture_required\": true,\n            \"position\": 2,\n            \"todo_list_id\": \"4782987471\",\n            \"todo_list_section_id\": \"12663\",\n            \"title\": \"Check the roof\",\n            \"updated_at\": 1152230608,\n            \"sub_tasks\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"photos\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      {\n        \"id\": \"4782987471\",\n        \"todo_list_id\": \"8292212\",\n        \"creator_id\": \"314\",\n        \"creator_type\": \"User\",\n        \"creator_name\": \"314\",\n        \"title\": \"Section #1\",\n        \"position\": 1904,\n        \"tasks\": [\n          {\n            \"id\": \"4782987471\",\n            \"completed_at\": 1152230608,\n            \"completed_by_id\": \"14365\",\n            \"completed_by_type\": \"User\",\n            \"created_at\": 1152230608,\n            \"creator_id\": \"314\",\n            \"creator_type\": \"User\",\n            \"details\": \"Check the roof for leaks\",\n            \"photo_capture_required\": true,\n            \"position\": 2,\n            \"todo_list_id\": \"4782987471\",\n            \"todo_list_section_id\": \"12663\",\n            \"title\": \"Check the roof\",\n            \"updated_at\": 1152230608,\n            \"sub_tasks\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"photos\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"id\": \"4782987471\",\n            \"completed_at\": 1152230608,\n            \"completed_by_id\": \"14365\",\n            \"completed_by_type\": \"User\",\n            \"created_at\": 1152230608,\n            \"creator_id\": \"314\",\n            \"creator_type\": \"User\",\n            \"details\": \"Check the roof for leaks\",\n            \"photo_capture_required\": true,\n            \"position\": 2,\n            \"todo_list_id\": \"4782987471\",\n            \"todo_list_section_id\": \"12663\",\n            \"title\": \"Check the roof\",\n            \"updated_at\": 1152230608,\n            \"sub_tasks\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"photos\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "611762b3-5463-43a0-ab27-c155ea279cca",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "checklists"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "completed",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"Bad Request\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6041f214-390a-42fe-8e68-2a3af2603784",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "checklists"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "completed",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"Record not found\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8a5322f6-51cb-4bea-bfa7-ff092b2b7ce4",
+              "name": "Unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "checklists"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "completed",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"An unexpected error occured\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.companycam.com/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3aeb4549-71ee-4286-acf1-f2a6492dc746",
+    "name": "Core Checklists API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

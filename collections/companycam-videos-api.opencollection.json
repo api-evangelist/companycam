@@ -1,0 +1,102 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Core Checklists Videos API",
+    "version": "v2"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Videos",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Videos",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.companycam.com/v2/videos",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "A unix timestamp to return videos captured on or after the provided value"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "A unix timestamp to return videos captured on or before the provided value"
+              },
+              {
+                "name": "project_ids",
+                "value": "",
+                "type": "query",
+                "description": "Filter results to include videos captured at one of these project IDs"
+              },
+              {
+                "name": "user_ids",
+                "value": "",
+                "type": "query",
+                "description": "Filter results to include videos captured by one of these user IDs"
+              },
+              {
+                "name": "group_ids",
+                "value": "",
+                "type": "query",
+                "description": "Filter results to include videos captured by one of these group IDs"
+              },
+              {
+                "name": "tag_ids",
+                "value": "",
+                "type": "query",
+                "description": "Filter results to include videos tagged with one of these tag IDs"
+              }
+            ]
+          },
+          "docs": "Returns videos visible to the authenticated user, sorted by\ncapture date (most recent first). Supports the same\nfiltering and pagination parameters as `/photos`.\n\n**Important:** Until a video's `status` is `processed`, the\n`playback_url` field returns the raw upload URL (the\n`pending_uri`) and `format` returns the file extension of\nthat URL — not the HLS playback URL or `m3u8`. Subscribe\nto the `video.updated` webhook or poll\n`GET /videos/{id}` until `status: processed` before\nconsuming `playbac"
+        },
+        {
+          "info": {
+            "name": "Retrieve Video",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.companycam.com/v2/videos/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Video"
+              }
+            ]
+          },
+          "docs": "Returns details for a single video.\n\n**Important:** Until `status` is `processed`, `playback_url`\nreturns the raw upload URL (the `pending_uri`) and `format`\nreturns the file extension of that URL — not the HLS\nplayback URL or `m3u8`. Poll this endpoint until\n`status: processed` before consuming\n`playback_url`/`format`.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,803 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Core Checklists Projects API",
+    "version": "v2"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Projects",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Projects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.companycam.com/v2/projects",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "An optional value to filter the projects by name or address line 1"
+              },
+              {
+                "name": "modified_since",
+                "value": "",
+                "type": "query",
+                "description": "An ISO8601 formatted date and time to return projects modified on or after the provided value"
+              }
+            ]
+          },
+          "docs": "List Projects"
+        },
+        {
+          "info": {
+            "name": "Create Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.companycam.com/v2/projects",
+            "headers": [
+              {
+                "name": "X-CompanyCam-User",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Project"
+        },
+        {
+          "info": {
+            "name": "Retrieve Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.companycam.com/v2/projects/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Project"
+              }
+            ]
+          },
+          "docs": "Retrieve Project"
+        },
+        {
+          "info": {
+            "name": "Update Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.companycam.com/v2/projects/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Project"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Project"
+        },
+        {
+          "info": {
+            "name": "Delete Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.companycam.com/v2/projects/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Project"
+              }
+            ]
+          },
+          "docs": "Delete Project"
+        },
+        {
+          "info": {
+            "name": "Archive Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.companycam.com/v2/projects/:id/archive",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Project"
+              }
+            ]
+          },
+          "docs": "Archive Project"
+        },
+        {
+          "info": {
+            "name": "Restore Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.companycam.com/v2/projects/:id/restore",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Project"
+              }
+            ]
+          },
+          "docs": "Restore Project"
+        },
+        {
+          "info": {
+            "name": "List Photos",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.companycam.com/v2/projects/:project_id/photos",
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Project"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for offset-based pagination. Cannot be used with cursor pagination (after/before params)"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Number of results per page. Default 50, maximum 100"
+              },
+              {
+                "name": "after",
+                "value": "",
+                "type": "query",
+                "description": "Cursor for forward pagination. Comes from X-Next-Cursor header value. Returns results after this cursor position. Cannot be used with 'before' or 'page'"
+              },
+              {
+                "name": "before",
+                "value": "",
+                "type": "query",
+                "description": "Cursor for backward pagination. Comes from X-Prev-Cursor header value. Returns results before this cursor position. Cannot be used with 'after' or 'page'"
+              },
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "A unix timestamp to return photos captured on or after the provided value"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "A unix timestamp to return photos captured on or before the provided value"
+              },
+              {
+                "name": "user_ids",
+                "value": "",
+                "type": "query",
+                "description": "Filter results to include photos captured by one of these user IDs"
+              },
+              {
+                "name": "group_ids",
+                "value": "",
+                "type": "query",
+                "description": "Filter results to include photos captured by users in one of these group IDs"
+              },
+              {
+                "name": "tag_ids",
+                "value": "",
+                "type": "query",
+                "description": "Filter results to include photos with one of these tag IDs"
+              }
+            ]
+          },
+          "docs": "List Photos"
+        },
+        {
+          "info": {
+            "name": "Add Photo",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.companycam.com/v2/projects/:project_id/photos",
+            "headers": [
+              {
+                "name": "X-CompanyCam-User",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Project"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Photo"
+        },
+        {
+          "info": {
+            "name": "List Videos",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.companycam.com/v2/projects/:project_id/videos",
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Project"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "A unix timestamp to return videos captured on or after the provided value"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "A unix timestamp to return videos captured on or before the provided value"
+              },
+              {
+                "name": "user_ids",
+                "value": "",
+                "type": "query",
+                "description": "Filter results to include videos captured by one of these user IDs"
+              },
+              {
+                "name": "group_ids",
+                "value": "",
+                "type": "query",
+                "description": "Filter results to include videos captured by one of these group IDs"
+              },
+              {
+                "name": "tag_ids",
+                "value": "",
+                "type": "query",
+                "description": "Filter results to include videos tagged with one of these tag IDs"
+              }
+            ]
+          },
+          "docs": "Returns videos captured at the specified project.\n\n**Important:** Until a video's `status` is `processed`, the\n`playback_url` field returns the raw upload URL (the\n`pending_uri`) and `format` returns the file extension of\nthat URL — not the HLS playback URL or `m3u8`. Subscribe\nto the `video.updated` webhook or poll\n`GET /videos/{id}` until `status: processed` before\nconsuming `playback_url`/`format`.\n"
+        },
+        {
+          "info": {
+            "name": "List assigned users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.companycam.com/v2/projects/:project_id/assigned_users",
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Project"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List assigned users"
+        },
+        {
+          "info": {
+            "name": "Assign a user to a project",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.companycam.com/v2/projects/:project_id/assigned_users/:user_id",
+            "headers": [
+              {
+                "name": "X-CompanyCam-User",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Project"
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the User"
+              }
+            ]
+          },
+          "docs": "Assign a user to a project"
+        },
+        {
+          "info": {
+            "name": "Remove assigned user from project",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.companycam.com/v2/projects/:project_id/assigned_users/:user_id",
+            "headers": [
+              {
+                "name": "X-CompanyCam-User",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Project"
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the User"
+              }
+            ]
+          },
+          "docs": "Remove assigned user from project"
+        },
+        {
+          "info": {
+            "name": "Update the project notepad",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.companycam.com/v2/projects/:project_id/notepad",
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Project"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the project notepad"
+        },
+        {
+          "info": {
+            "name": "List project collaborators",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.companycam.com/v2/projects/:project_id/collaborators",
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Project"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List project collaborators"
+        },
+        {
+          "info": {
+            "name": "List project invitations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.companycam.com/v2/projects/:project_id/invitations",
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Project"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List project invitations"
+        },
+        {
+          "info": {
+            "name": "Create a new project invitation for collaboration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.companycam.com/v2/projects/:project_id/invitations",
+            "headers": [
+              {
+                "name": "X-CompanyCam-User",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Project"
+              }
+            ]
+          },
+          "docs": "Create a new project invitation for collaboration"
+        },
+        {
+          "info": {
+            "name": "List Project Labels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.companycam.com/v2/projects/:project_id/labels",
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Project"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Project Labels"
+        },
+        {
+          "info": {
+            "name": "Add Labels",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.companycam.com/v2/projects/:project_id/labels",
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Project"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Labels"
+        },
+        {
+          "info": {
+            "name": "Delete Label",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.companycam.com/v2/projects/:project_id/labels/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Label"
+              },
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Project"
+              }
+            ]
+          },
+          "docs": "Delete Label"
+        },
+        {
+          "info": {
+            "name": "List Project Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.companycam.com/v2/projects/:project_id/documents",
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Project"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Project Documents"
+        },
+        {
+          "info": {
+            "name": "Upload a Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.companycam.com/v2/projects/:project_id/documents",
+            "headers": [
+              {
+                "name": "X-CompanyCam-User",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Project"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Upload a Document"
+        },
+        {
+          "info": {
+            "name": "List Project Comments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.companycam.com/v2/projects/:project_id/comments",
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Project"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Project Comments"
+        },
+        {
+          "info": {
+            "name": "Add Project Comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.companycam.com/v2/projects/:project_id/comments",
+            "headers": [
+              {
+                "name": "X-CompanyCam-User",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Project"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Project Comment"
+        },
+        {
+          "info": {
+            "name": "List Project Checklists",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.companycam.com/v2/projects/:project_id/checklists",
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Project"
+              }
+            ]
+          },
+          "docs": "List Project Checklists"
+        },
+        {
+          "info": {
+            "name": "Create Checklist on Project from a Checklist Template",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.companycam.com/v2/projects/:project_id/checklists",
+            "headers": [
+              {
+                "name": "X-CompanyCam-User",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Project"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Checklist on Project from a Checklist Template"
+        },
+        {
+          "info": {
+            "name": "Retrieve Project Checklist",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.companycam.com/v2/projects/:project_id/checklists/:id",
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Project"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Checklist"
+              }
+            ]
+          },
+          "docs": "Retrieve Project Checklist"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
