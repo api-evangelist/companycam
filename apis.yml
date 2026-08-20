@@ -42,6 +42,15 @@ tags:
 - Project Management
 - Contractors
 - Documentation
+- Webhook
+tags_raw:
+- Company
+- Construction
+- Photos
+- Field Service
+- Project Management
+- Contractors
+- Documentation
 - Webhooks
 apis:
 - aid: companycam:companycam-checklists-api
@@ -102,6 +111,8 @@ apis:
   humanURL: https://docs.companycam.com/
   baseURL: https://api.companycam.com/v2
   tags:
+  - Group
+  tags_raw:
   - Groups
   properties:
   - type: OpenAPI
@@ -154,6 +165,8 @@ apis:
   humanURL: https://docs.companycam.com/
   baseURL: https://api.companycam.com/v2
   tags:
+  - Project
+  tags_raw:
   - Projects
   properties:
   - type: OpenAPI
@@ -232,6 +245,8 @@ apis:
   humanURL: https://docs.companycam.com/
   baseURL: https://api.companycam.com/v2
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
@@ -284,6 +299,8 @@ apis:
   humanURL: https://docs.companycam.com/
   baseURL: https://api.companycam.com/v2
   tags:
+  - Webhook
+  tags_raw:
   - Webhooks
   properties:
   - type: OpenAPI
