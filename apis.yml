@@ -285,6 +285,8 @@ apis:
   humanURL: https://docs.companycam.com/
   baseURL: https://api.companycam.com/v2
   tags:
+  - Video
+  tags_raw:
   - Videos
   properties:
   - type: OpenAPI
