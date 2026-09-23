@@ -1,7 +1,7 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   version: v2
-  title: Core Checklists Photos API
+  title: Core Photos API
 servers:
 - url: https://api.companycam.com/v2
 security:
@@ -605,6 +605,52 @@ paths:
                 - An unexpected error occurred
 components:
   schemas:
+    Coordinate:
+      type: object
+      required:
+      - lat
+      - lon
+      properties:
+        lat:
+          type: number
+          format: float
+        lon:
+          type: number
+          format: float
+      example:
+        lat: 28.425852468018288
+        lon: -81.47155671113255
+    Tag:
+      type: object
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          description: A unique ID for the Tag.
+          example: '48892885'
+        company_id:
+          type: string
+          description: A unique ID for the Company the Tag belongs to
+          example: '8292212'
+        display_value:
+          type: string
+          description: The display value of the Tag. Used to display to the user
+          example: Front Side
+        value:
+          type: string
+          description: The lowercase version of the display_value. This is useful for searching and sorting
+          example: front side
+        created_at:
+          type: integer
+          format: int32
+          description: Timestamp when the Tag was created on the server
+          example: 1152230608
+        updated_at:
+          type: integer
+          format: int32
+          description: Timestamp when the Tag was last updated
+          example: 1152230700
     Photo:
       type: object
       required:
@@ -698,52 +744,22 @@ components:
           format: int32
           description: Timestamp when the photo was last updated
           example: 1152230400
-    Tag:
+    ImageURI:
       type: object
       required:
-      - id
+      - type
+      - uri
       properties:
-        id:
+        type:
           type: string
-          description: A unique ID for the Tag.
-          example: '48892885'
-        company_id:
+        uri:
           type: string
-          description: A unique ID for the Company the Tag belongs to
-          example: '8292212'
-        display_value:
+        url:
           type: string
-          description: The display value of the Tag. Used to display to the user
-          example: Front Side
-        value:
-          type: string
-          description: The lowercase version of the display_value. This is useful for searching and sorting
-          example: front side
-        created_at:
-          type: integer
-          format: int32
-          description: Timestamp when the Tag was created on the server
-          example: 1152230608
-        updated_at:
-          type: integer
-          format: int32
-          description: Timestamp when the Tag was last updated
-          example: 1152230700
-    Coordinate:
-      type: object
-      required:
-      - lat
-      - lon
-      properties:
-        lat:
-          type: number
-          format: float
-        lon:
-          type: number
-          format: float
       example:
-        lat: 28.425852468018288
-        lon: -81.47155671113255
+        type: original
+        uri: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
+        url: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
     Comment:
       type: object
       required:
@@ -791,22 +807,6 @@ components:
           format: int32
           description: Timestamp when the Comment was last updated
           example: 1152230400
-    ImageURI:
-      type: object
-      required:
-      - type
-      - uri
-      properties:
-        type:
-          type: string
-        uri:
-          type: string
-        url:
-          type: string
-      example:
-        type: original
-        uri: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
-        url: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
     Error:
       type: object
       properties:

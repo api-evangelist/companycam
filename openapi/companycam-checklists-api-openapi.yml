@@ -1,4 +1,4 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   version: v2
   title: Core Checklists API
@@ -68,6 +68,21 @@ paths:
                 - An unexpected error occured
 components:
   schemas:
+    Coordinate:
+      type: object
+      required:
+      - lat
+      - lon
+      properties:
+        lat:
+          type: number
+          format: float
+        lon:
+          type: number
+          format: float
+      example:
+        lat: 28.425852468018288
+        lon: -81.47155671113255
     Photo:
       type: object
       required:
@@ -161,6 +176,22 @@ components:
           format: int32
           description: Timestamp when the photo was last updated
           example: 1152230400
+    ImageURI:
+      type: object
+      required:
+      - type
+      - uri
+      properties:
+        type:
+          type: string
+        uri:
+          type: string
+        url:
+          type: string
+      example:
+        type: original
+        uri: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
+        url: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
     Task:
       type: object
       properties:
@@ -211,9 +242,10 @@ components:
           description: A unique identifier for the Checklist the Task belongs to
           example: '4782987471'
         todo_list_section_id:
-          type: string
+          type:
+          - string
+          - 'null'
           description: A unique identifier for the ChecklistSection the Task belongs to
-          nullable: true
           example: '12663'
         title:
           type: string
@@ -264,9 +296,10 @@ components:
           description: Timestamp when the Checklist was last updated
           example: 1152230400
         completed_at:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int32
-          nullable: true
           description: Timestamp when the Checklist was completed
           example: 1232230400
         creator_id:
@@ -274,8 +307,9 @@ components:
           description: A unique identifier for the creator of the Checklist
           example: '314'
         checklist_template_id:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           description: A unique identifier for the template used to create the Checklist
           example: '4156'
         is_populating:
@@ -292,6 +326,42 @@ components:
           description: A collection of sections
           items:
             $ref: '#/components/schemas/ChecklistSection'
+    ChecklistSection:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The unique ID for the ChecklistSection
+          example: '4782987471'
+        todo_list_id:
+          type: string
+          description: A unique identifier for the Checklist the ChecklistSection belongs to
+          example: '8292212'
+        creator_id:
+          type: string
+          description: A unique identifier of the creator of the ChecklistSection
+          example: '314'
+        creator_type:
+          type: string
+          description: The type of the creator of the ChecklistSection
+          example: User
+        creator_name:
+          type: string
+          description: The name of the creator of the ChecklistSection
+          example: '314'
+        title:
+          type: string
+          description: The title of the ChecklistSection
+          example: 'Section #1'
+        position:
+          type: integer
+          description: The position for the ChecklistSection within the Checklist
+          example: '0'
+        tasks:
+          type: array
+          description: A collection of tasks associated to a ChecklistSection
+          items:
+            $ref: '#/components/schemas/Task'
     SubTask:
       type: object
       properties:
@@ -338,37 +408,6 @@ components:
           type: string
           description: The answer text for the SubTask when the type is open_text
           example: It was a pretty ok task
-    Coordinate:
-      type: object
-      required:
-      - lat
-      - lon
-      properties:
-        lat:
-          type: number
-          format: float
-        lon:
-          type: number
-          format: float
-      example:
-        lat: 28.425852468018288
-        lon: -81.47155671113255
-    ImageURI:
-      type: object
-      required:
-      - type
-      - uri
-      properties:
-        type:
-          type: string
-        uri:
-          type: string
-        url:
-          type: string
-      example:
-        type: original
-        uri: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
-        url: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
     Error:
       type: object
       properties:
@@ -378,42 +417,6 @@ components:
             type: string
           example:
           - Record not found
-    ChecklistSection:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The unique ID for the ChecklistSection
-          example: '4782987471'
-        todo_list_id:
-          type: string
-          description: A unique identifier for the Checklist the ChecklistSection belongs to
-          example: '8292212'
-        creator_id:
-          type: string
-          description: A unique identifier of the creator of the ChecklistSection
-          example: '314'
-        creator_type:
-          type: string
-          description: The type of the creator of the ChecklistSection
-          example: User
-        creator_name:
-          type: string
-          description: The name of the creator of the ChecklistSection
-          example: '314'
-        title:
-          type: string
-          description: The title of the ChecklistSection
-          example: 'Section #1'
-        position:
-          type: integer
-          description: The position for the ChecklistSection within the Checklist
-          example: '0'
-        tasks:
-          type: array
-          description: A collection of tasks associated to a ChecklistSection
-          items:
-            $ref: '#/components/schemas/Task'
   securitySchemes:
     BearerAuth:
       type: http

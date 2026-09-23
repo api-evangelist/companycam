@@ -1,7 +1,7 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   version: v2
-  title: Core Checklists Webhooks API
+  title: Core Webhooks API
 servers:
 - url: https://api.companycam.com/v2
 security:
@@ -273,15 +273,6 @@ paths:
                 - An unexpected error occured
 components:
   schemas:
-    Error:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: string
-          example:
-          - Record not found
     Webhook:
       type: object
       required:
@@ -325,6 +316,15 @@ components:
         enabled: true
         created_at: 1490737206
         updated_at: 1490737406
+    Error:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+          example:
+          - Record not found
   securitySchemes:
     BearerAuth:
       type: http

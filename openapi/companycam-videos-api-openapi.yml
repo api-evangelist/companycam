@@ -1,7 +1,7 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   version: v2
-  title: Core Checklists Videos API
+  title: Core Videos API
 servers:
 - url: https://api.companycam.com/v2
 security:
@@ -31,9 +31,7 @@ paths:
 
         `GET /videos/{id}` until `status: processed` before
 
-        consuming `playback_url`/`format`.
-
-        '
+        consuming `playback_url`/`format`.'
       operationId: listVideos
       tags:
       - Videos
@@ -142,9 +140,7 @@ paths:
 
         `status: processed` before consuming
 
-        `playback_url`/`format`.
-
-        '
+        `playback_url`/`format`.'
       operationId: getVideo
       tags:
       - Videos
@@ -201,15 +197,6 @@ paths:
                 - An unexpected error occured
 components:
   schemas:
-    Error:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: string
-          example:
-          - Record not found
     Coordinate:
       type: object
       required:
@@ -292,8 +279,9 @@ components:
           description: Unix timestamp when the video was last updated
           example: 1721918492
         playback_url:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           description: 'Once `status` is `processed`, this is the HLS
 
             manifest URL (`.m3u8`) used to play the video.
@@ -305,8 +293,9 @@ components:
             '
           example: https://stream.mux.com/abc123.m3u8
         format:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           description: 'The video format. `"m3u8"` once the video has been
 
             processed; otherwise the file extension of the
@@ -320,21 +309,33 @@ components:
           description: Static thumbnail images at three sizes. May be null until the thumbnail has been fetched.
           properties:
             large:
-              type: string
-              nullable: true
+              type:
+              - string
+              - 'null'
               example: https://imgproxy.companycam.com/.../large.jpg
             medium:
-              type: string
-              nullable: true
+              type:
+              - string
+              - 'null'
               example: https://imgproxy.companycam.com/.../medium.jpg
             small:
-              type: string
-              nullable: true
+              type:
+              - string
+              - 'null'
               example: https://imgproxy.companycam.com/.../small.jpg
         duration:
           type: integer
           description: Length of the video in seconds
           example: 42
+    Error:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+          example:
+          - Record not found
   securitySchemes:
     BearerAuth:
       type: http

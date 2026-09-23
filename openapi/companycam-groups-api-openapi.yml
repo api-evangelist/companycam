@@ -1,7 +1,7 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   version: v2
-  title: Core Checklists Groups API
+  title: Core Groups API
 servers:
 - url: https://api.companycam.com/v2
 security:
@@ -278,6 +278,54 @@ paths:
                 - An unexpected error occured
 components:
   schemas:
+    User:
+      type: object
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          example: '2789583992'
+        company_id:
+          type: string
+          example: '8292212'
+        email_address:
+          type: string
+          example: shawn@psych.co
+        status:
+          type: string
+          description: Indicates the status of the Company.
+          enum:
+          - active
+          - deleted
+          example: active
+        first_name:
+          type: string
+          example: Shawn
+        last_name:
+          type: string
+          example: Spencer
+        profile_image:
+          type: array
+          description: A list of images for the different variants of the user profile image
+          items:
+            $ref: '#/components/schemas/ImageURI'
+        phone_number:
+          type:
+          - string
+          - 'null'
+          example: '4025551212'
+        created_at:
+          type: integer
+          format: int32
+          example: 1490737206
+        updated_at:
+          type: integer
+          format: int32
+          example: 1490737206
+        user_url:
+          type: string
+          example: https://app.companycam.com/users/1234
     Group:
       type: object
       required:
@@ -321,62 +369,6 @@ components:
           format: int32
           description: Timestamp when the Group was last updated
           example: 1490737744
-    User:
-      type: object
-      required:
-      - id
-      properties:
-        id:
-          type: string
-          example: '2789583992'
-        company_id:
-          type: string
-          example: '8292212'
-        email_address:
-          type: string
-          example: shawn@psych.co
-        status:
-          type: string
-          description: Indicates the status of the Company.
-          enum:
-          - active
-          - deleted
-          example: active
-        first_name:
-          type: string
-          example: Shawn
-        last_name:
-          type: string
-          example: Spencer
-        profile_image:
-          type: array
-          description: A list of images for the different variants of the user profile image
-          items:
-            $ref: '#/components/schemas/ImageURI'
-        phone_number:
-          type: string
-          nullable: true
-          example: '4025551212'
-        created_at:
-          type: integer
-          format: int32
-          example: 1490737206
-        updated_at:
-          type: integer
-          format: int32
-          example: 1490737206
-        user_url:
-          type: string
-          example: https://app.companycam.com/users/1234
-    Error:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: string
-          example:
-          - Record not found
     ImageURI:
       type: object
       required:
@@ -393,6 +385,15 @@ components:
         type: original
         uri: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
         url: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
+    Error:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+          example:
+          - Record not found
   securitySchemes:
     BearerAuth:
       type: http
