@@ -68,21 +68,42 @@ paths:
                 - An unexpected error occured
 components:
   schemas:
-    Coordinate:
+    ChecklistSection:
       type: object
-      required:
-      - lat
-      - lon
       properties:
-        lat:
-          type: number
-          format: float
-        lon:
-          type: number
-          format: float
-      example:
-        lat: 28.425852468018288
-        lon: -81.47155671113255
+        id:
+          type: string
+          description: The unique ID for the ChecklistSection
+          example: '4782987471'
+        todo_list_id:
+          type: string
+          description: A unique identifier for the Checklist the ChecklistSection belongs to
+          example: '8292212'
+        creator_id:
+          type: string
+          description: A unique identifier of the creator of the ChecklistSection
+          example: '314'
+        creator_type:
+          type: string
+          description: The type of the creator of the ChecklistSection
+          example: User
+        creator_name:
+          type: string
+          description: The name of the creator of the ChecklistSection
+          example: '314'
+        title:
+          type: string
+          description: The title of the ChecklistSection
+          example: 'Section #1'
+        position:
+          type: integer
+          description: The position for the ChecklistSection within the Checklist
+          example: '0'
+        tasks:
+          type: array
+          description: A collection of tasks associated to a ChecklistSection
+          items:
+            $ref: '#/components/schemas/Task'
     Photo:
       type: object
       required:
@@ -176,6 +197,52 @@ components:
           format: int32
           description: Timestamp when the photo was last updated
           example: 1152230400
+    SubTask:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The unique ID for the Task
+          example: '4782987471'
+        label:
+          type: string
+          description: The title of the Task
+          example: Check the roof
+        answer_type:
+          type: string
+          description: The type of answer expected for the SubTask
+          enum:
+          - open_text
+          - multiple_choice
+          - yes_no
+          example: open_text
+        answer_choices:
+          type: array
+          description: The index from the answer_options array that were selected as answers
+          example:
+          - 0
+          - 2
+        answer_options:
+          type: array
+          description: A collection of answer options for the SubTask
+          items:
+            type: string
+            example:
+            - 'Yes'
+            - 'No'
+            - Maybe
+        position:
+          type: integer
+          description: The position for the SubTask within its Task
+          example: 2
+        task_id:
+          type: string
+          description: A unique identifier for the Task the SubTask belongs to
+          example: '4782987471'
+        answer_text:
+          type: string
+          description: The answer text for the SubTask when the type is open_text
+          example: It was a pretty ok task
     ImageURI:
       type: object
       required:
@@ -192,6 +259,90 @@ components:
         type: original
         uri: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
         url: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
+    Error:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+          example:
+          - Record not found
+    Coordinate:
+      type: object
+      required:
+      - lat
+      - lon
+      properties:
+        lat:
+          type: number
+          format: float
+        lon:
+          type: number
+          format: float
+      example:
+        lat: 28.425852468018288
+        lon: -81.47155671113255
+    Checklist:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The unique ID for the Checklist
+          example: '4782987471'
+        company_id:
+          type: string
+          description: A unique identifier for the Company the Checklist belongs to
+          example: '8292212'
+        project_id:
+          type: string
+          description: A unique identifier for the Project the Checklist belongs to
+          example: '812'
+        name:
+          type: string
+          description: The name for the Checklist
+          example: Roof state survey
+        created_at:
+          type: integer
+          format: int32
+          description: Timestamp when the Checklist was created on the server.
+          example: 1152230608
+        updated_at:
+          type: integer
+          format: int32
+          description: Timestamp when the Checklist was last updated
+          example: 1152230400
+        completed_at:
+          type:
+          - integer
+          - 'null'
+          format: int32
+          description: Timestamp when the Checklist was completed
+          example: 1232230400
+        creator_id:
+          type: string
+          description: A unique identifier for the creator of the Checklist
+          example: '314'
+        checklist_template_id:
+          type:
+          - string
+          - 'null'
+          description: A unique identifier for the template used to create the Checklist
+          example: '4156'
+        is_populating:
+          type: boolean
+          description: Flag indicating wether the Checklist is still being created or not
+          example: false
+        sectionless_tasks:
+          type: array
+          description: A collection of tasks that are not associated with a section
+          items:
+            $ref: '#/components/schemas/Task'
+        sections:
+          type: array
+          description: A collection of sections
+          items:
+            $ref: '#/components/schemas/ChecklistSection'
     Task:
       type: object
       properties:
@@ -266,157 +417,6 @@ components:
           description: A collection of photos associated to a Task
           items:
             $ref: '#/components/schemas/Photo'
-    Checklist:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The unique ID for the Checklist
-          example: '4782987471'
-        company_id:
-          type: string
-          description: A unique identifier for the Company the Checklist belongs to
-          example: '8292212'
-        project_id:
-          type: string
-          description: A unique identifier for the Project the Checklist belongs to
-          example: '812'
-        name:
-          type: string
-          description: The name for the Checklist
-          example: Roof state survey
-        created_at:
-          type: integer
-          format: int32
-          description: Timestamp when the Checklist was created on the server.
-          example: 1152230608
-        updated_at:
-          type: integer
-          format: int32
-          description: Timestamp when the Checklist was last updated
-          example: 1152230400
-        completed_at:
-          type:
-          - integer
-          - 'null'
-          format: int32
-          description: Timestamp when the Checklist was completed
-          example: 1232230400
-        creator_id:
-          type: string
-          description: A unique identifier for the creator of the Checklist
-          example: '314'
-        checklist_template_id:
-          type:
-          - string
-          - 'null'
-          description: A unique identifier for the template used to create the Checklist
-          example: '4156'
-        is_populating:
-          type: boolean
-          description: Flag indicating wether the Checklist is still being created or not
-          example: false
-        sectionless_tasks:
-          type: array
-          description: A collection of tasks that are not associated with a section
-          items:
-            $ref: '#/components/schemas/Task'
-        sections:
-          type: array
-          description: A collection of sections
-          items:
-            $ref: '#/components/schemas/ChecklistSection'
-    ChecklistSection:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The unique ID for the ChecklistSection
-          example: '4782987471'
-        todo_list_id:
-          type: string
-          description: A unique identifier for the Checklist the ChecklistSection belongs to
-          example: '8292212'
-        creator_id:
-          type: string
-          description: A unique identifier of the creator of the ChecklistSection
-          example: '314'
-        creator_type:
-          type: string
-          description: The type of the creator of the ChecklistSection
-          example: User
-        creator_name:
-          type: string
-          description: The name of the creator of the ChecklistSection
-          example: '314'
-        title:
-          type: string
-          description: The title of the ChecklistSection
-          example: 'Section #1'
-        position:
-          type: integer
-          description: The position for the ChecklistSection within the Checklist
-          example: '0'
-        tasks:
-          type: array
-          description: A collection of tasks associated to a ChecklistSection
-          items:
-            $ref: '#/components/schemas/Task'
-    SubTask:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The unique ID for the Task
-          example: '4782987471'
-        label:
-          type: string
-          description: The title of the Task
-          example: Check the roof
-        answer_type:
-          type: string
-          description: The type of answer expected for the SubTask
-          enum:
-          - open_text
-          - multiple_choice
-          - yes_no
-          example: open_text
-        answer_choices:
-          type: array
-          description: The index from the answer_options array that were selected as answers
-          example:
-          - 0
-          - 2
-        answer_options:
-          type: array
-          description: A collection of answer options for the SubTask
-          items:
-            type: string
-            example:
-            - 'Yes'
-            - 'No'
-            - Maybe
-        position:
-          type: integer
-          description: The position for the SubTask within its Task
-          example: 2
-        task_id:
-          type: string
-          description: A unique identifier for the Task the SubTask belongs to
-          example: '4782987471'
-        answer_text:
-          type: string
-          description: The answer text for the SubTask when the type is open_text
-          example: It was a pretty ok task
-    Error:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: string
-          example:
-          - Record not found
   securitySchemes:
     BearerAuth:
       type: http

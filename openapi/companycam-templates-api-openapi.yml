@@ -53,6 +53,15 @@ paths:
                 - An unexpected error occured
 components:
   schemas:
+    Error:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+          example:
+          - Record not found
     ChecklistTemplate:
       type: object
       properties:
@@ -82,15 +91,6 @@ components:
           format: int32
           description: Timestamp when the ChecklistTemplate was last updated
           example: 1152230400
-    Error:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: string
-          example:
-          - Record not found
   securitySchemes:
     BearerAuth:
       type: http

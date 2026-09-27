@@ -197,21 +197,6 @@ paths:
                 - An unexpected error occured
 components:
   schemas:
-    Coordinate:
-      type: object
-      required:
-      - lat
-      - lon
-      properties:
-        lat:
-          type: number
-          format: float
-        lon:
-          type: number
-          format: float
-      example:
-        lat: 28.425852468018288
-        lon: -81.47155671113255
     Video:
       type: object
       required:
@@ -327,6 +312,21 @@ components:
           type: integer
           description: Length of the video in seconds
           example: 42
+    Coordinate:
+      type: object
+      required:
+      - lat
+      - lon
+      properties:
+        lat:
+          type: number
+          format: float
+        lon:
+          type: number
+          format: float
+      example:
+        lat: 28.425852468018288
+        lon: -81.47155671113255
     Error:
       type: object
       properties:
