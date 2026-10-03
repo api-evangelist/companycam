@@ -1779,15 +1779,62 @@ components:
           description: A collection of tasks associated to a ChecklistSection
           items:
             $ref: '#/components/schemas/Task'
-    Error:
+    ProjectNotepad:
       type: object
+      required:
+      - notepad
       properties:
-        errors:
-          type: array
-          items:
-            type: string
-          example:
-          - Record not found
+        notepad:
+          type: string
+      example:
+        notepad: Be sure to let the client know when the work is finished
+    Comment:
+      type: object
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          description: The unique ID of the comment
+          example: '4782987471'
+        creator_id:
+          type: string
+          description: The id of the entity that created the Comment
+          example: '2789583992'
+        creator_type:
+          type: string
+          description: The type of the entity that created the Comment
+          example: User
+        creator_name:
+          type: string
+          description: The display name of the entity that created the Comment
+          example: Shawn Spencer
+        commentable_id:
+          type: string
+          description: The unique ID of the entity that the comment was applied to
+          example: '388472672'
+        commentable_type:
+          type: string
+          description: The type of the entity that the comment was applied to.
+          example: Photo
+        status:
+          type: string
+          description: This should always be active
+          example: active
+        content:
+          type: string
+          description: The contents of the comment. This may contain whitespace characters such as newlines.
+          example: Have you seen this yet?
+        created_at:
+          type: integer
+          format: int32
+          description: Timestamp when the Comment was created on the server
+          example: 1152230608
+        updated_at:
+          type: integer
+          format: int32
+          description: Timestamp when the Comment was last updated
+          example: 1152230400
     SubTask:
       type: object
       properties:
@@ -1834,6 +1881,113 @@ components:
           type: string
           description: The answer text for the SubTask when the type is open_text
           example: It was a pretty ok task
+    Task:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The unique ID for the Task
+          example: '4782987471'
+        completed_at:
+          type: integer
+          format: int32
+          description: Timestamp when the Task was marked completed.
+          example: 1152230608
+        completed_by_id:
+          type: string
+          description: The unique ID for entity that completed the Task
+          example: '14365'
+        completed_by_type:
+          type: string
+          description: The type of the entity that marked the Task as completed
+          example: User
+        created_at:
+          type: integer
+          format: int32
+          description: Timestamp when the Task was created on the server.
+          example: 1152230608
+        creator_id:
+          type: string
+          description: A unique identifier of the creator of the Task
+          example: '314'
+        creator_type:
+          type: string
+          description: The type of the creator of the Task
+          example: User
+        details:
+          type: string
+          description: The details of a Task
+          example: Check the roof for leaks
+        photo_capture_required:
+          type: boolean
+          description: Flag indicating whether a photo is required to complete the Task
+          example: true
+        position:
+          type: integer
+          description: The position for the Task within its ChecklistSection or Checklist
+          example: 2
+        todo_list_id:
+          type: string
+          description: A unique identifier for the Checklist the Task belongs to
+          example: '4782987471'
+        todo_list_section_id:
+          type:
+          - string
+          - 'null'
+          description: A unique identifier for the ChecklistSection the Task belongs to
+          example: '12663'
+        title:
+          type: string
+          description: The title of the Task
+          example: Check the roof
+        updated_at:
+          type: integer
+          format: int32
+          description: Timestamp when the Checklist was last updated on the server.
+          example: 1152230608
+        sub_tasks:
+          type: array
+          description: A collection of sub-tasks associated to a Task
+          items:
+            $ref: '#/components/schemas/SubTask'
+        photos:
+          type: array
+          description: A collection of photos associated to a Task
+          items:
+            $ref: '#/components/schemas/Photo'
+    ProjectContactResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The unique ID of the project contact
+          example: '115'
+        project_id:
+          type: string
+          description: The unique ID of the project the contact is attached to
+          example: '48892885'
+        name:
+          type: string
+          description: The name of the contact
+          example: Joe Smith
+        email:
+          type: string
+          description: The email of the contact
+          example: joe.smith@companycam.com
+        phone_number:
+          type: string
+          description: The phone of the contact
+          example: 402-555-1212
+        created_at:
+          type: integer
+          format: int32
+          description: Timestamp when the Project Contact was created on the server
+          example: 1621857746
+        updated_at:
+          type: integer
+          format: int32
+          description: Timestamp when the Project Contact was last updated
+          example: 1621857746
     ProjectContactRequest:
       type: object
       required:
@@ -1851,163 +2005,6 @@ components:
           type: string
           description: The phone of the contact
           example: 402-555-1212
-    Address:
-      type: object
-      properties:
-        street_address_1:
-          type:
-          - string
-          - 'null'
-        street_address_2:
-          type:
-          - string
-          - 'null'
-        city:
-          type:
-          - string
-          - 'null'
-        state:
-          type:
-          - string
-          - 'null'
-        postal_code:
-          type:
-          - string
-          - 'null'
-        country:
-          type:
-          - string
-          - 'null'
-      example:
-        street_address_1: 808 P St
-        city: Lincoln
-        state: NE
-        postal_code: '68508'
-        country: US
-    Tag:
-      type: object
-      required:
-      - id
-      properties:
-        id:
-          type: string
-          description: A unique ID for the Tag.
-          example: '48892885'
-        company_id:
-          type: string
-          description: A unique ID for the Company the Tag belongs to
-          example: '8292212'
-        display_value:
-          type: string
-          description: The display value of the Tag. Used to display to the user
-          example: Front Side
-        value:
-          type: string
-          description: The lowercase version of the display_value. This is useful for searching and sorting
-          example: front side
-        created_at:
-          type: integer
-          format: int32
-          description: Timestamp when the Tag was created on the server
-          example: 1152230608
-        updated_at:
-          type: integer
-          format: int32
-          description: Timestamp when the Tag was last updated
-          example: 1152230700
-    Photo:
-      type: object
-      required:
-      - id
-      properties:
-        id:
-          type: string
-          description: The unique ID for the photo
-          example: '4782987471'
-        company_id:
-          type: string
-          description: A unique identifier for the Company the Photo belongs to
-          example: '8292212'
-        creator_id:
-          type: string
-          description: The id of the entity that created the Photo
-          example: '2789583992'
-        creator_type:
-          type: string
-          description: The type of the entity that created the Photo
-          example: User
-        creator_name:
-          type: string
-          description: The display name of the entity that created the Photo
-          example: Shawn Spencer
-        project_id:
-          type: string
-          description: The unique ID of the project the Photo was captured at
-          example: '94772883'
-        processing_status:
-          type: string
-          description: Indicates the Photo’s processing status.
-          enum:
-          - pending
-          - processing
-          - processed
-          - processing_error
-          - duplicate
-          example: processed
-        status:
-          type: string
-          description: The status of the Photo
-          enum:
-          - active
-          - deleted
-          example: active
-        coordinates:
-          description: The coordinates where the Photo was captured
-          allOf:
-          - $ref: '#/components/schemas/Coordinate'
-        uris:
-          type: array
-          description: A list of URIs for the different size variants of the photo.
-          items:
-            $ref: '#/components/schemas/ImageURI'
-          example:
-          - type: original
-            url: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
-          - type: web
-            url: https://static.companycam.com/VuS0rPvrnNA1490797262web.jpg
-          - type: thumbnail
-            url: https://static.companycam.com/VuS0rPvrnNA1490797262small.jpg
-        hash:
-          type: string
-          description: The MD5 hash of the photo
-          example: 00ab337b7399151e5d4aa3bd4226e8dd
-        description:
-          type: string
-          description: A description of the photo
-          example: The front of the house
-        internal:
-          type: boolean
-          description: Indicates whether the photo is for internal use only and should not be used in marketing or other public materials
-          example: false
-        photo_url:
-          type: string
-          description: The link to the photo in the web app
-          example: https://app.companycam.com/photos/8675309
-        captured_at:
-          type: integer
-          format: int32
-          description: Timestamp when the Photo was captured
-          example: 1152230396
-        created_at:
-          type: integer
-          format: int32
-          description: Timestamp when the photo was created on the server. This may differ from the captured_at field
-          example: 1152230608
-        updated_at:
-          type: integer
-          format: int32
-          description: Timestamp when the photo was last updated
-          example: 1152230400
     Project:
       type: object
       required:
@@ -2108,216 +2105,75 @@ components:
           format: int32
           description: Timestamp when the Project was updated
           example: 1395792000
-    Checklist:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The unique ID for the Checklist
-          example: '4782987471'
-        company_id:
-          type: string
-          description: A unique identifier for the Company the Checklist belongs to
-          example: '8292212'
-        project_id:
-          type: string
-          description: A unique identifier for the Project the Checklist belongs to
-          example: '812'
-        name:
-          type: string
-          description: The name for the Checklist
-          example: Roof state survey
-        created_at:
-          type: integer
-          format: int32
-          description: Timestamp when the Checklist was created on the server.
-          example: 1152230608
-        updated_at:
-          type: integer
-          format: int32
-          description: Timestamp when the Checklist was last updated
-          example: 1152230400
-        completed_at:
-          type:
-          - integer
-          - 'null'
-          format: int32
-          description: Timestamp when the Checklist was completed
-          example: 1232230400
-        creator_id:
-          type: string
-          description: A unique identifier for the creator of the Checklist
-          example: '314'
-        checklist_template_id:
-          type:
-          - string
-          - 'null'
-          description: A unique identifier for the template used to create the Checklist
-          example: '4156'
-        is_populating:
-          type: boolean
-          description: Flag indicating wether the Checklist is still being created or not
-          example: false
-        sectionless_tasks:
-          type: array
-          description: A collection of tasks that are not associated with a section
-          items:
-            $ref: '#/components/schemas/Task'
-        sections:
-          type: array
-          description: A collection of sections
-          items:
-            $ref: '#/components/schemas/ChecklistSection'
-    Task:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The unique ID for the Task
-          example: '4782987471'
-        completed_at:
-          type: integer
-          format: int32
-          description: Timestamp when the Task was marked completed.
-          example: 1152230608
-        completed_by_id:
-          type: string
-          description: The unique ID for entity that completed the Task
-          example: '14365'
-        completed_by_type:
-          type: string
-          description: The type of the entity that marked the Task as completed
-          example: User
-        created_at:
-          type: integer
-          format: int32
-          description: Timestamp when the Task was created on the server.
-          example: 1152230608
-        creator_id:
-          type: string
-          description: A unique identifier of the creator of the Task
-          example: '314'
-        creator_type:
-          type: string
-          description: The type of the creator of the Task
-          example: User
-        details:
-          type: string
-          description: The details of a Task
-          example: Check the roof for leaks
-        photo_capture_required:
-          type: boolean
-          description: Flag indicating whether a photo is required to complete the Task
-          example: true
-        position:
-          type: integer
-          description: The position for the Task within its ChecklistSection or Checklist
-          example: 2
-        todo_list_id:
-          type: string
-          description: A unique identifier for the Checklist the Task belongs to
-          example: '4782987471'
-        todo_list_section_id:
-          type:
-          - string
-          - 'null'
-          description: A unique identifier for the ChecklistSection the Task belongs to
-          example: '12663'
-        title:
-          type: string
-          description: The title of the Task
-          example: Check the roof
-        updated_at:
-          type: integer
-          format: int32
-          description: Timestamp when the Checklist was last updated on the server.
-          example: 1152230608
-        sub_tasks:
-          type: array
-          description: A collection of sub-tasks associated to a Task
-          items:
-            $ref: '#/components/schemas/SubTask'
-        photos:
-          type: array
-          description: A collection of photos associated to a Task
-          items:
-            $ref: '#/components/schemas/Photo'
-    ProjectCollaborator:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The unique ID of the collaborator
-          example: '48892885'
-        company_id:
-          type: string
-          description: The unique ID of the collaborating company
-          example: '48892885'
-        project_id:
-          type: string
-          description: The unique ID of the project the collaborator is a part of
-          example: '48892885'
-        project_invitation_id:
-          type: string
-          description: The unique ID of the invitation for the collaboration
-          example: '48892885'
-        accepted_at:
-          type: integer
-          format: int32
-          description: Timestamp when the project collaboration was accepted
-          example: 1621857746
-        created_at:
-          type: integer
-          format: int32
-          description: Timestamp when the project collaboration was created on the server
-          example: 1621857746
-        updated_at:
-          type: integer
-          format: int32
-          description: Timestamp when the project collaboration was last updated
-          example: 1621857746
-    ProjectNotepad:
+    ProjectIntegration:
       type: object
       required:
-      - notepad
+      - type
+      - relation_id
       properties:
-        notepad:
+        type:
           type: string
-      example:
-        notepad: Be sure to let the client know when the work is finished
-    ProjectContactResponse:
+          example: JobNimbus
+        relation_id:
+          type: string
+          example: '123'
+    User:
       type: object
+      required:
+      - id
       properties:
         id:
           type: string
-          description: The unique ID of the project contact
-          example: '115'
-        project_id:
+          example: '2789583992'
+        company_id:
           type: string
-          description: The unique ID of the project the contact is attached to
-          example: '48892885'
-        name:
+          example: '8292212'
+        email_address:
           type: string
-          description: The name of the contact
-          example: Joe Smith
-        email:
+          example: shawn@psych.co
+        status:
           type: string
-          description: The email of the contact
-          example: joe.smith@companycam.com
+          description: Indicates the status of the Company.
+          enum:
+          - active
+          - deleted
+          example: active
+        first_name:
+          type: string
+          example: Shawn
+        last_name:
+          type: string
+          example: Spencer
+        profile_image:
+          type: array
+          description: A list of images for the different variants of the user profile image
+          items:
+            $ref: '#/components/schemas/ImageURI'
         phone_number:
-          type: string
-          description: The phone of the contact
-          example: 402-555-1212
+          type:
+          - string
+          - 'null'
+          example: '4025551212'
         created_at:
           type: integer
           format: int32
-          description: Timestamp when the Project Contact was created on the server
-          example: 1621857746
+          example: 1490737206
         updated_at:
           type: integer
           format: int32
-          description: Timestamp when the Project Contact was last updated
-          example: 1621857746
+          example: 1490737206
+        user_url:
+          type: string
+          example: https://app.companycam.com/users/1234
+    Error:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+          example:
+          - Record not found
     ProjectInvitation:
       type: object
       properties:
@@ -2368,196 +2224,6 @@ components:
           format: int32
           description: Timestamp when the project invitation was last updated
           example: 1621857749
-    Comment:
-      type: object
-      required:
-      - id
-      properties:
-        id:
-          type: string
-          description: The unique ID of the comment
-          example: '4782987471'
-        creator_id:
-          type: string
-          description: The id of the entity that created the Comment
-          example: '2789583992'
-        creator_type:
-          type: string
-          description: The type of the entity that created the Comment
-          example: User
-        creator_name:
-          type: string
-          description: The display name of the entity that created the Comment
-          example: Shawn Spencer
-        commentable_id:
-          type: string
-          description: The unique ID of the entity that the comment was applied to
-          example: '388472672'
-        commentable_type:
-          type: string
-          description: The type of the entity that the comment was applied to.
-          example: Photo
-        status:
-          type: string
-          description: This should always be active
-          example: active
-        content:
-          type: string
-          description: The contents of the comment. This may contain whitespace characters such as newlines.
-          example: Have you seen this yet?
-        created_at:
-          type: integer
-          format: int32
-          description: Timestamp when the Comment was created on the server
-          example: 1152230608
-        updated_at:
-          type: integer
-          format: int32
-          description: Timestamp when the Comment was last updated
-          example: 1152230400
-    ProjectIntegration:
-      type: object
-      required:
-      - type
-      - relation_id
-      properties:
-        type:
-          type: string
-          example: JobNimbus
-        relation_id:
-          type: string
-          example: '123'
-    ImageURI:
-      type: object
-      required:
-      - type
-      - uri
-      properties:
-        type:
-          type: string
-        uri:
-          type: string
-        url:
-          type: string
-      example:
-        type: original
-        uri: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
-        url: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
-    Document:
-      type: object
-      required:
-      - id
-      properties:
-        id:
-          type: string
-          description: The unique ID of the document
-          example: '115'
-        creator_id:
-          type: string
-          description: The unique ID of the entity that created the document
-          example: '8675309'
-        creator_type:
-          type: string
-          description: The type of the entity that created the document
-          example: User
-        creator_name:
-          type: string
-          description: The unique ID of the company that owns the document
-          example: CompanyCam Developer
-        project_id:
-          type: string
-          description: The unique ID of the project the document is attached to
-          example: '48892885'
-        name:
-          type: string
-          description: the filename of the document
-          example: silver-kadabra-measurements.pdf
-        url:
-          type: string
-          description: The URL where the document can be downloaded/viewed from
-          example: https://static.companycam.com/documents/8374c65e-2048-41d4-b4a7-a9c839fd388a.pdf
-        content_type:
-          type: string
-          description: The content type of the document. (e.g. application/pdf)
-          example: application/pdf
-        byte_size:
-          type: integer
-          format: int32
-          description: The size of the document in bytes.
-          example: 3457903
-        created_at:
-          type: integer
-          format: int32
-          description: Timestamp when the Document was created on the server
-          example: 1621857746
-        updated_at:
-          type: integer
-          format: int32
-          description: Timestamp when the Document was last updated
-          example: 1621857746
-    Coordinate:
-      type: object
-      required:
-      - lat
-      - lon
-      properties:
-        lat:
-          type: number
-          format: float
-        lon:
-          type: number
-          format: float
-      example:
-        lat: 28.425852468018288
-        lon: -81.47155671113255
-    User:
-      type: object
-      required:
-      - id
-      properties:
-        id:
-          type: string
-          example: '2789583992'
-        company_id:
-          type: string
-          example: '8292212'
-        email_address:
-          type: string
-          example: shawn@psych.co
-        status:
-          type: string
-          description: Indicates the status of the Company.
-          enum:
-          - active
-          - deleted
-          example: active
-        first_name:
-          type: string
-          example: Shawn
-        last_name:
-          type: string
-          example: Spencer
-        profile_image:
-          type: array
-          description: A list of images for the different variants of the user profile image
-          items:
-            $ref: '#/components/schemas/ImageURI'
-        phone_number:
-          type:
-          - string
-          - 'null'
-          example: '4025551212'
-        created_at:
-          type: integer
-          format: int32
-          example: 1490737206
-        updated_at:
-          type: integer
-          format: int32
-          example: 1490737206
-        user_url:
-          type: string
-          example: https://app.companycam.com/users/1234
     Video:
       type: object
       required:
@@ -2673,6 +2339,340 @@ components:
           type: integer
           description: Length of the video in seconds
           example: 42
+    Coordinate:
+      type: object
+      required:
+      - lat
+      - lon
+      properties:
+        lat:
+          type: number
+          format: float
+        lon:
+          type: number
+          format: float
+      example:
+        lat: 28.425852468018288
+        lon: -81.47155671113255
+    Tag:
+      type: object
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          description: A unique ID for the Tag.
+          example: '48892885'
+        company_id:
+          type: string
+          description: A unique ID for the Company the Tag belongs to
+          example: '8292212'
+        display_value:
+          type: string
+          description: The display value of the Tag. Used to display to the user
+          example: Front Side
+        value:
+          type: string
+          description: The lowercase version of the display_value. This is useful for searching and sorting
+          example: front side
+        created_at:
+          type: integer
+          format: int32
+          description: Timestamp when the Tag was created on the server
+          example: 1152230608
+        updated_at:
+          type: integer
+          format: int32
+          description: Timestamp when the Tag was last updated
+          example: 1152230700
+    ImageURI:
+      type: object
+      required:
+      - type
+      - uri
+      properties:
+        type:
+          type: string
+        uri:
+          type: string
+        url:
+          type: string
+      example:
+        type: original
+        uri: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
+        url: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
+    Checklist:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The unique ID for the Checklist
+          example: '4782987471'
+        company_id:
+          type: string
+          description: A unique identifier for the Company the Checklist belongs to
+          example: '8292212'
+        project_id:
+          type: string
+          description: A unique identifier for the Project the Checklist belongs to
+          example: '812'
+        name:
+          type: string
+          description: The name for the Checklist
+          example: Roof state survey
+        created_at:
+          type: integer
+          format: int32
+          description: Timestamp when the Checklist was created on the server.
+          example: 1152230608
+        updated_at:
+          type: integer
+          format: int32
+          description: Timestamp when the Checklist was last updated
+          example: 1152230400
+        completed_at:
+          type:
+          - integer
+          - 'null'
+          format: int32
+          description: Timestamp when the Checklist was completed
+          example: 1232230400
+        creator_id:
+          type: string
+          description: A unique identifier for the creator of the Checklist
+          example: '314'
+        checklist_template_id:
+          type:
+          - string
+          - 'null'
+          description: A unique identifier for the template used to create the Checklist
+          example: '4156'
+        is_populating:
+          type: boolean
+          description: Flag indicating wether the Checklist is still being created or not
+          example: false
+        sectionless_tasks:
+          type: array
+          description: A collection of tasks that are not associated with a section
+          items:
+            $ref: '#/components/schemas/Task'
+        sections:
+          type: array
+          description: A collection of sections
+          items:
+            $ref: '#/components/schemas/ChecklistSection'
+    Document:
+      type: object
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          description: The unique ID of the document
+          example: '115'
+        creator_id:
+          type: string
+          description: The unique ID of the entity that created the document
+          example: '8675309'
+        creator_type:
+          type: string
+          description: The type of the entity that created the document
+          example: User
+        creator_name:
+          type: string
+          description: The unique ID of the company that owns the document
+          example: CompanyCam Developer
+        project_id:
+          type: string
+          description: The unique ID of the project the document is attached to
+          example: '48892885'
+        name:
+          type: string
+          description: the filename of the document
+          example: silver-kadabra-measurements.pdf
+        url:
+          type: string
+          description: The URL where the document can be downloaded/viewed from
+          example: https://static.companycam.com/documents/8374c65e-2048-41d4-b4a7-a9c839fd388a.pdf
+        content_type:
+          type: string
+          description: The content type of the document. (e.g. application/pdf)
+          example: application/pdf
+        byte_size:
+          type: integer
+          format: int32
+          description: The size of the document in bytes.
+          example: 3457903
+        created_at:
+          type: integer
+          format: int32
+          description: Timestamp when the Document was created on the server
+          example: 1621857746
+        updated_at:
+          type: integer
+          format: int32
+          description: Timestamp when the Document was last updated
+          example: 1621857746
+    Photo:
+      type: object
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          description: The unique ID for the photo
+          example: '4782987471'
+        company_id:
+          type: string
+          description: A unique identifier for the Company the Photo belongs to
+          example: '8292212'
+        creator_id:
+          type: string
+          description: The id of the entity that created the Photo
+          example: '2789583992'
+        creator_type:
+          type: string
+          description: The type of the entity that created the Photo
+          example: User
+        creator_name:
+          type: string
+          description: The display name of the entity that created the Photo
+          example: Shawn Spencer
+        project_id:
+          type: string
+          description: The unique ID of the project the Photo was captured at
+          example: '94772883'
+        processing_status:
+          type: string
+          description: Indicates the Photo’s processing status.
+          enum:
+          - pending
+          - processing
+          - processed
+          - processing_error
+          - duplicate
+          example: processed
+        status:
+          type: string
+          description: The status of the Photo
+          enum:
+          - active
+          - deleted
+          example: active
+        coordinates:
+          description: The coordinates where the Photo was captured
+          allOf:
+          - $ref: '#/components/schemas/Coordinate'
+        uris:
+          type: array
+          description: A list of URIs for the different size variants of the photo.
+          items:
+            $ref: '#/components/schemas/ImageURI'
+          example:
+          - type: original
+            url: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
+          - type: web
+            url: https://static.companycam.com/VuS0rPvrnNA1490797262web.jpg
+          - type: thumbnail
+            url: https://static.companycam.com/VuS0rPvrnNA1490797262small.jpg
+        hash:
+          type: string
+          description: The MD5 hash of the photo
+          example: 00ab337b7399151e5d4aa3bd4226e8dd
+        description:
+          type: string
+          description: A description of the photo
+          example: The front of the house
+        internal:
+          type: boolean
+          description: Indicates whether the photo is for internal use only and should not be used in marketing or other public materials
+          example: false
+        photo_url:
+          type: string
+          description: The link to the photo in the web app
+          example: https://app.companycam.com/photos/8675309
+        captured_at:
+          type: integer
+          format: int32
+          description: Timestamp when the Photo was captured
+          example: 1152230396
+        created_at:
+          type: integer
+          format: int32
+          description: Timestamp when the photo was created on the server. This may differ from the captured_at field
+          example: 1152230608
+        updated_at:
+          type: integer
+          format: int32
+          description: Timestamp when the photo was last updated
+          example: 1152230400
+    ProjectCollaborator:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The unique ID of the collaborator
+          example: '48892885'
+        company_id:
+          type: string
+          description: The unique ID of the collaborating company
+          example: '48892885'
+        project_id:
+          type: string
+          description: The unique ID of the project the collaborator is a part of
+          example: '48892885'
+        project_invitation_id:
+          type: string
+          description: The unique ID of the invitation for the collaboration
+          example: '48892885'
+        accepted_at:
+          type: integer
+          format: int32
+          description: Timestamp when the project collaboration was accepted
+          example: 1621857746
+        created_at:
+          type: integer
+          format: int32
+          description: Timestamp when the project collaboration was created on the server
+          example: 1621857746
+        updated_at:
+          type: integer
+          format: int32
+          description: Timestamp when the project collaboration was last updated
+          example: 1621857746
+    Address:
+      type: object
+      properties:
+        street_address_1:
+          type:
+          - string
+          - 'null'
+        street_address_2:
+          type:
+          - string
+          - 'null'
+        city:
+          type:
+          - string
+          - 'null'
+        state:
+          type:
+          - string
+          - 'null'
+        postal_code:
+          type:
+          - string
+          - 'null'
+        country:
+          type:
+          - string
+          - 'null'
+      example:
+        street_address_1: 808 P St
+        city: Lincoln
+        state: NE
+        postal_code: '68508'
+        country: US
   securitySchemes:
     BearerAuth:
       type: http

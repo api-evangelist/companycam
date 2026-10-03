@@ -707,6 +707,52 @@ components:
           format: int32
           description: Timestamp when the photo was last updated
           example: 1152230400
+    Coordinate:
+      type: object
+      required:
+      - lat
+      - lon
+      properties:
+        lat:
+          type: number
+          format: float
+        lon:
+          type: number
+          format: float
+      example:
+        lat: 28.425852468018288
+        lon: -81.47155671113255
+    Tag:
+      type: object
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          description: A unique ID for the Tag.
+          example: '48892885'
+        company_id:
+          type: string
+          description: A unique ID for the Company the Tag belongs to
+          example: '8292212'
+        display_value:
+          type: string
+          description: The display value of the Tag. Used to display to the user
+          example: Front Side
+        value:
+          type: string
+          description: The lowercase version of the display_value. This is useful for searching and sorting
+          example: front side
+        created_at:
+          type: integer
+          format: int32
+          description: Timestamp when the Tag was created on the server
+          example: 1152230608
+        updated_at:
+          type: integer
+          format: int32
+          description: Timestamp when the Tag was last updated
+          example: 1152230700
     ImageURI:
       type: object
       required:
@@ -723,21 +769,6 @@ components:
         type: original
         uri: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
         url: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
-    Coordinate:
-      type: object
-      required:
-      - lat
-      - lon
-      properties:
-        lat:
-          type: number
-          format: float
-        lon:
-          type: number
-          format: float
-      example:
-        lat: 28.425852468018288
-        lon: -81.47155671113255
     Comment:
       type: object
       required:
@@ -785,37 +816,6 @@ components:
           format: int32
           description: Timestamp when the Comment was last updated
           example: 1152230400
-    Tag:
-      type: object
-      required:
-      - id
-      properties:
-        id:
-          type: string
-          description: A unique ID for the Tag.
-          example: '48892885'
-        company_id:
-          type: string
-          description: A unique ID for the Company the Tag belongs to
-          example: '8292212'
-        display_value:
-          type: string
-          description: The display value of the Tag. Used to display to the user
-          example: Front Side
-        value:
-          type: string
-          description: The lowercase version of the display_value. This is useful for searching and sorting
-          example: front side
-        created_at:
-          type: integer
-          format: int32
-          description: Timestamp when the Tag was created on the server
-          example: 1152230608
-        updated_at:
-          type: integer
-          format: int32
-          description: Timestamp when the Tag was last updated
-          example: 1152230700
   securitySchemes:
     BearerAuth:
       type: http

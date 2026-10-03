@@ -104,6 +104,61 @@ components:
           description: A collection of tasks associated to a ChecklistSection
           items:
             $ref: '#/components/schemas/Task'
+    Error:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+          example:
+          - Record not found
+    SubTask:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The unique ID for the Task
+          example: '4782987471'
+        label:
+          type: string
+          description: The title of the Task
+          example: Check the roof
+        answer_type:
+          type: string
+          description: The type of answer expected for the SubTask
+          enum:
+          - open_text
+          - multiple_choice
+          - yes_no
+          example: open_text
+        answer_choices:
+          type: array
+          description: The index from the answer_options array that were selected as answers
+          example:
+          - 0
+          - 2
+        answer_options:
+          type: array
+          description: A collection of answer options for the SubTask
+          items:
+            type: string
+            example:
+            - 'Yes'
+            - 'No'
+            - Maybe
+        position:
+          type: integer
+          description: The position for the SubTask within its Task
+          example: 2
+        task_id:
+          type: string
+          description: A unique identifier for the Task the SubTask belongs to
+          example: '4782987471'
+        answer_text:
+          type: string
+          description: The answer text for the SubTask when the type is open_text
+          example: It was a pretty ok task
     Photo:
       type: object
       required:
@@ -197,52 +252,21 @@ components:
           format: int32
           description: Timestamp when the photo was last updated
           example: 1152230400
-    SubTask:
+    Coordinate:
       type: object
+      required:
+      - lat
+      - lon
       properties:
-        id:
-          type: string
-          description: The unique ID for the Task
-          example: '4782987471'
-        label:
-          type: string
-          description: The title of the Task
-          example: Check the roof
-        answer_type:
-          type: string
-          description: The type of answer expected for the SubTask
-          enum:
-          - open_text
-          - multiple_choice
-          - yes_no
-          example: open_text
-        answer_choices:
-          type: array
-          description: The index from the answer_options array that were selected as answers
-          example:
-          - 0
-          - 2
-        answer_options:
-          type: array
-          description: A collection of answer options for the SubTask
-          items:
-            type: string
-            example:
-            - 'Yes'
-            - 'No'
-            - Maybe
-        position:
-          type: integer
-          description: The position for the SubTask within its Task
-          example: 2
-        task_id:
-          type: string
-          description: A unique identifier for the Task the SubTask belongs to
-          example: '4782987471'
-        answer_text:
-          type: string
-          description: The answer text for the SubTask when the type is open_text
-          example: It was a pretty ok task
+        lat:
+          type: number
+          format: float
+        lon:
+          type: number
+          format: float
+      example:
+        lat: 28.425852468018288
+        lon: -81.47155671113255
     ImageURI:
       type: object
       required:
@@ -259,30 +283,6 @@ components:
         type: original
         uri: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
         url: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
-    Error:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: string
-          example:
-          - Record not found
-    Coordinate:
-      type: object
-      required:
-      - lat
-      - lon
-      properties:
-        lat:
-          type: number
-          format: float
-        lon:
-          type: number
-          format: float
-      example:
-        lat: 28.425852468018288
-        lon: -81.47155671113255
     Checklist:
       type: object
       properties:

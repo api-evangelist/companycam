@@ -347,6 +347,22 @@ components:
             type: string
           example:
           - Record not found
+    ImageURI:
+      type: object
+      required:
+      - type
+      - uri
+      properties:
+        type:
+          type: string
+        uri:
+          type: string
+        url:
+          type: string
+      example:
+        type: original
+        uri: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
+        url: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
     User:
       type: object
       required:
@@ -395,22 +411,6 @@ components:
         user_url:
           type: string
           example: https://app.companycam.com/users/1234
-    ImageURI:
-      type: object
-      required:
-      - type
-      - uri
-      properties:
-        type:
-          type: string
-        uri:
-          type: string
-        url:
-          type: string
-      example:
-        type: original
-        uri: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
-        url: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
   securitySchemes:
     BearerAuth:
       type: http

@@ -278,58 +278,6 @@ paths:
                 - An unexpected error occured
 components:
   schemas:
-    Group:
-      type: object
-      required:
-      - id
-      properties:
-        id:
-          type: string
-          description: A unique ID for the Group.
-          example: '3992883'
-        company_id:
-          type: string
-          description: A unique ID for the Company the Group belongs to
-          example: '8292212'
-        name:
-          type: string
-          description: The title of the Group
-          example: The Psych Crew
-        users:
-          type: array
-          description: A list of the group's users
-          items:
-            $ref: '#/components/schemas/User'
-        status:
-          type: string
-          description: Indicates the status of the Group
-          enum:
-          - active
-          - deleted
-          example: active
-        group_url:
-          type: string
-          description: The link to the group in the web app
-          example: https://app.companycam.com/groups/1234
-        created_at:
-          type: integer
-          format: int32
-          description: Timestamp when the Group was created on the server
-          example: 1490737206
-        updated_at:
-          type: integer
-          format: int32
-          description: Timestamp when the Group was last updated
-          example: 1490737744
-    Error:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: string
-          example:
-          - Record not found
     User:
       type: object
       required:
@@ -378,6 +326,15 @@ components:
         user_url:
           type: string
           example: https://app.companycam.com/users/1234
+    Error:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+          example:
+          - Record not found
     ImageURI:
       type: object
       required:
@@ -394,6 +351,49 @@ components:
         type: original
         uri: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
         url: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
+    Group:
+      type: object
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          description: A unique ID for the Group.
+          example: '3992883'
+        company_id:
+          type: string
+          description: A unique ID for the Company the Group belongs to
+          example: '8292212'
+        name:
+          type: string
+          description: The title of the Group
+          example: The Psych Crew
+        users:
+          type: array
+          description: A list of the group's users
+          items:
+            $ref: '#/components/schemas/User'
+        status:
+          type: string
+          description: Indicates the status of the Group
+          enum:
+          - active
+          - deleted
+          example: active
+        group_url:
+          type: string
+          description: The link to the group in the web app
+          example: https://app.companycam.com/groups/1234
+        created_at:
+          type: integer
+          format: int32
+          description: Timestamp when the Group was created on the server
+          example: 1490737206
+        updated_at:
+          type: integer
+          format: int32
+          description: Timestamp when the Group was last updated
+          example: 1490737744
   securitySchemes:
     BearerAuth:
       type: http
