@@ -197,6 +197,15 @@ paths:
                 - An unexpected error occured
 components:
   schemas:
+    Error:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+          example:
+          - Record not found
     Coordinate:
       type: object
       required:
@@ -212,15 +221,6 @@ components:
       example:
         lat: 28.425852468018288
         lon: -81.47155671113255
-    Error:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: string
-          example:
-          - Record not found
     Video:
       type: object
       required:

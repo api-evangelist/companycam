@@ -51,46 +51,22 @@ paths:
                 - An unexpected error occured
 components:
   schemas:
-    Error:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: string
-          example:
-          - Record not found
-    Company:
+    ImageURI:
       type: object
       required:
-      - id
-      - name
+      - type
+      - uri
       properties:
-        id:
+        type:
           type: string
-          description: The Company's unique ID
-          example: '2789583992'
-        name:
+        uri:
           type: string
-          description: The name of the company
-          example: Psych
-        status:
+        url:
           type: string
-          description: Indicates the status of the Company.
-          enum:
-          - active
-          - cancelled
-          - deleted
-          example: active
-        address:
-          type: string
-          description: The address of the company
-          $ref: '#/components/schemas/Address'
-        logo:
-          type: array
-          description: A list of images for the different variants of the logo
-          items:
-            $ref: '#/components/schemas/ImageURI'
+      example:
+        type: original
+        uri: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
+        url: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
     Address:
       type: object
       properties:
@@ -124,22 +100,46 @@ components:
         state: NE
         postal_code: '68508'
         country: US
-    ImageURI:
+    Company:
       type: object
       required:
-      - type
-      - uri
+      - id
+      - name
       properties:
-        type:
+        id:
           type: string
-        uri:
+          description: The Company's unique ID
+          example: '2789583992'
+        name:
           type: string
-        url:
+          description: The name of the company
+          example: Psych
+        status:
           type: string
-      example:
-        type: original
-        uri: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
-        url: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
+          description: Indicates the status of the Company.
+          enum:
+          - active
+          - cancelled
+          - deleted
+          example: active
+        address:
+          type: string
+          description: The address of the company
+          $ref: '#/components/schemas/Address'
+        logo:
+          type: array
+          description: A list of images for the different variants of the logo
+          items:
+            $ref: '#/components/schemas/ImageURI'
+    Error:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+          example:
+          - Record not found
   securitySchemes:
     BearerAuth:
       type: http

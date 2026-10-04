@@ -335,22 +335,6 @@ components:
             type: string
           example:
           - Record not found
-    ImageURI:
-      type: object
-      required:
-      - type
-      - uri
-      properties:
-        type:
-          type: string
-        uri:
-          type: string
-        url:
-          type: string
-      example:
-        type: original
-        uri: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
-        url: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
     Group:
       type: object
       required:
@@ -394,6 +378,22 @@ components:
           format: int32
           description: Timestamp when the Group was last updated
           example: 1490737744
+    ImageURI:
+      type: object
+      required:
+      - type
+      - uri
+      properties:
+        type:
+          type: string
+        uri:
+          type: string
+        url:
+          type: string
+      example:
+        type: original
+        uri: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
+        url: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
   securitySchemes:
     BearerAuth:
       type: http

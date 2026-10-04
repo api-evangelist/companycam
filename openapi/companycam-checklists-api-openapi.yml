@@ -68,51 +68,37 @@ paths:
                 - An unexpected error occured
 components:
   schemas:
-    ChecklistSection:
+    Coordinate:
       type: object
+      required:
+      - lat
+      - lon
       properties:
-        id:
-          type: string
-          description: The unique ID for the ChecklistSection
-          example: '4782987471'
-        todo_list_id:
-          type: string
-          description: A unique identifier for the Checklist the ChecklistSection belongs to
-          example: '8292212'
-        creator_id:
-          type: string
-          description: A unique identifier of the creator of the ChecklistSection
-          example: '314'
-        creator_type:
-          type: string
-          description: The type of the creator of the ChecklistSection
-          example: User
-        creator_name:
-          type: string
-          description: The name of the creator of the ChecklistSection
-          example: '314'
-        title:
-          type: string
-          description: The title of the ChecklistSection
-          example: 'Section #1'
-        position:
-          type: integer
-          description: The position for the ChecklistSection within the Checklist
-          example: '0'
-        tasks:
-          type: array
-          description: A collection of tasks associated to a ChecklistSection
-          items:
-            $ref: '#/components/schemas/Task'
-    Error:
+        lat:
+          type: number
+          format: float
+        lon:
+          type: number
+          format: float
+      example:
+        lat: 28.425852468018288
+        lon: -81.47155671113255
+    ImageURI:
       type: object
+      required:
+      - type
+      - uri
       properties:
-        errors:
-          type: array
-          items:
-            type: string
-          example:
-          - Record not found
+        type:
+          type: string
+        uri:
+          type: string
+        url:
+          type: string
+      example:
+        type: original
+        uri: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
+        url: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
     SubTask:
       type: object
       properties:
@@ -159,6 +145,42 @@ components:
           type: string
           description: The answer text for the SubTask when the type is open_text
           example: It was a pretty ok task
+    ChecklistSection:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The unique ID for the ChecklistSection
+          example: '4782987471'
+        todo_list_id:
+          type: string
+          description: A unique identifier for the Checklist the ChecklistSection belongs to
+          example: '8292212'
+        creator_id:
+          type: string
+          description: A unique identifier of the creator of the ChecklistSection
+          example: '314'
+        creator_type:
+          type: string
+          description: The type of the creator of the ChecklistSection
+          example: User
+        creator_name:
+          type: string
+          description: The name of the creator of the ChecklistSection
+          example: '314'
+        title:
+          type: string
+          description: The title of the ChecklistSection
+          example: 'Section #1'
+        position:
+          type: integer
+          description: The position for the ChecklistSection within the Checklist
+          example: '0'
+        tasks:
+          type: array
+          description: A collection of tasks associated to a ChecklistSection
+          items:
+            $ref: '#/components/schemas/Task'
     Photo:
       type: object
       required:
@@ -252,37 +274,15 @@ components:
           format: int32
           description: Timestamp when the photo was last updated
           example: 1152230400
-    Coordinate:
+    Error:
       type: object
-      required:
-      - lat
-      - lon
       properties:
-        lat:
-          type: number
-          format: float
-        lon:
-          type: number
-          format: float
-      example:
-        lat: 28.425852468018288
-        lon: -81.47155671113255
-    ImageURI:
-      type: object
-      required:
-      - type
-      - uri
-      properties:
-        type:
-          type: string
-        uri:
-          type: string
-        url:
-          type: string
-      example:
-        type: original
-        uri: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
-        url: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
+        errors:
+          type: array
+          items:
+            type: string
+          example:
+          - Record not found
     Checklist:
       type: object
       properties:

@@ -338,15 +338,6 @@ paths:
                 - An unexpected error occured
 components:
   schemas:
-    Error:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: string
-          example:
-          - Record not found
     ImageURI:
       type: object
       required:
@@ -411,6 +402,15 @@ components:
         user_url:
           type: string
           example: https://app.companycam.com/users/1234
+    Error:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+          example:
+          - Record not found
   securitySchemes:
     BearerAuth:
       type: http

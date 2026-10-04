@@ -605,15 +605,115 @@ paths:
                 - An unexpected error occurred
 components:
   schemas:
-    Error:
+    Tag:
       type: object
+      required:
+      - id
       properties:
-        errors:
-          type: array
-          items:
-            type: string
-          example:
-          - Record not found
+        id:
+          type: string
+          description: A unique ID for the Tag.
+          example: '48892885'
+        company_id:
+          type: string
+          description: A unique ID for the Company the Tag belongs to
+          example: '8292212'
+        display_value:
+          type: string
+          description: The display value of the Tag. Used to display to the user
+          example: Front Side
+        value:
+          type: string
+          description: The lowercase version of the display_value. This is useful for searching and sorting
+          example: front side
+        created_at:
+          type: integer
+          format: int32
+          description: Timestamp when the Tag was created on the server
+          example: 1152230608
+        updated_at:
+          type: integer
+          format: int32
+          description: Timestamp when the Tag was last updated
+          example: 1152230700
+    Coordinate:
+      type: object
+      required:
+      - lat
+      - lon
+      properties:
+        lat:
+          type: number
+          format: float
+        lon:
+          type: number
+          format: float
+      example:
+        lat: 28.425852468018288
+        lon: -81.47155671113255
+    ImageURI:
+      type: object
+      required:
+      - type
+      - uri
+      properties:
+        type:
+          type: string
+        uri:
+          type: string
+        url:
+          type: string
+      example:
+        type: original
+        uri: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
+        url: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
+    Comment:
+      type: object
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          description: The unique ID of the comment
+          example: '4782987471'
+        creator_id:
+          type: string
+          description: The id of the entity that created the Comment
+          example: '2789583992'
+        creator_type:
+          type: string
+          description: The type of the entity that created the Comment
+          example: User
+        creator_name:
+          type: string
+          description: The display name of the entity that created the Comment
+          example: Shawn Spencer
+        commentable_id:
+          type: string
+          description: The unique ID of the entity that the comment was applied to
+          example: '388472672'
+        commentable_type:
+          type: string
+          description: The type of the entity that the comment was applied to.
+          example: Photo
+        status:
+          type: string
+          description: This should always be active
+          example: active
+        content:
+          type: string
+          description: The contents of the comment. This may contain whitespace characters such as newlines.
+          example: Have you seen this yet?
+        created_at:
+          type: integer
+          format: int32
+          description: Timestamp when the Comment was created on the server
+          example: 1152230608
+        updated_at:
+          type: integer
+          format: int32
+          description: Timestamp when the Comment was last updated
+          example: 1152230400
     Photo:
       type: object
       required:
@@ -707,115 +807,15 @@ components:
           format: int32
           description: Timestamp when the photo was last updated
           example: 1152230400
-    Coordinate:
+    Error:
       type: object
-      required:
-      - lat
-      - lon
       properties:
-        lat:
-          type: number
-          format: float
-        lon:
-          type: number
-          format: float
-      example:
-        lat: 28.425852468018288
-        lon: -81.47155671113255
-    Tag:
-      type: object
-      required:
-      - id
-      properties:
-        id:
-          type: string
-          description: A unique ID for the Tag.
-          example: '48892885'
-        company_id:
-          type: string
-          description: A unique ID for the Company the Tag belongs to
-          example: '8292212'
-        display_value:
-          type: string
-          description: The display value of the Tag. Used to display to the user
-          example: Front Side
-        value:
-          type: string
-          description: The lowercase version of the display_value. This is useful for searching and sorting
-          example: front side
-        created_at:
-          type: integer
-          format: int32
-          description: Timestamp when the Tag was created on the server
-          example: 1152230608
-        updated_at:
-          type: integer
-          format: int32
-          description: Timestamp when the Tag was last updated
-          example: 1152230700
-    ImageURI:
-      type: object
-      required:
-      - type
-      - uri
-      properties:
-        type:
-          type: string
-        uri:
-          type: string
-        url:
-          type: string
-      example:
-        type: original
-        uri: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
-        url: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
-    Comment:
-      type: object
-      required:
-      - id
-      properties:
-        id:
-          type: string
-          description: The unique ID of the comment
-          example: '4782987471'
-        creator_id:
-          type: string
-          description: The id of the entity that created the Comment
-          example: '2789583992'
-        creator_type:
-          type: string
-          description: The type of the entity that created the Comment
-          example: User
-        creator_name:
-          type: string
-          description: The display name of the entity that created the Comment
-          example: Shawn Spencer
-        commentable_id:
-          type: string
-          description: The unique ID of the entity that the comment was applied to
-          example: '388472672'
-        commentable_type:
-          type: string
-          description: The type of the entity that the comment was applied to.
-          example: Photo
-        status:
-          type: string
-          description: This should always be active
-          example: active
-        content:
-          type: string
-          description: The contents of the comment. This may contain whitespace characters such as newlines.
-          example: Have you seen this yet?
-        created_at:
-          type: integer
-          format: int32
-          description: Timestamp when the Comment was created on the server
-          example: 1152230608
-        updated_at:
-          type: integer
-          format: int32
-          description: Timestamp when the Comment was last updated
-          example: 1152230400
+        errors:
+          type: array
+          items:
+            type: string
+          example:
+          - Record not found
   securitySchemes:
     BearerAuth:
       type: http
