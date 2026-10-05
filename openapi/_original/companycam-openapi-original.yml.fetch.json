@@ -1,0 +1,12 @@
+{
+ "url": "https://raw.githubusercontent.com/companycam/openapi-spec/HEAD/openapi.yaml",
+ "requested_url": "https://raw.githubusercontent.com/companycam/openapi-spec/HEAD/openapi.yaml",
+ "status": 200,
+ "content_type": "text/plain; charset=utf-8",
+ "bytes": 187449,
+ "sha256": "32f1dca50fede3c4fce3303394e24cd35167b164022cfef424c379441aee871c",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 1.0), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
