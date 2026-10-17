@@ -51,22 +51,15 @@ paths:
                 - An unexpected error occured
 components:
   schemas:
-    ImageURI:
+    Error:
       type: object
-      required:
-      - type
-      - uri
       properties:
-        type:
-          type: string
-        uri:
-          type: string
-        url:
-          type: string
-      example:
-        type: original
-        uri: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
-        url: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
+        errors:
+          type: array
+          items:
+            type: string
+          example:
+          - Record not found
     Address:
       type: object
       properties:
@@ -100,6 +93,22 @@ components:
         state: NE
         postal_code: '68508'
         country: US
+    ImageURI:
+      type: object
+      required:
+      - type
+      - uri
+      properties:
+        type:
+          type: string
+        uri:
+          type: string
+        url:
+          type: string
+      example:
+        type: original
+        uri: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
+        url: https://static.companycam.com/VuS0rPvrnNA1490797262.jpg
     Company:
       type: object
       required:
@@ -131,15 +140,6 @@ components:
           description: A list of images for the different variants of the logo
           items:
             $ref: '#/components/schemas/ImageURI'
-    Error:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: string
-          example:
-          - Record not found
   securitySchemes:
     BearerAuth:
       type: http

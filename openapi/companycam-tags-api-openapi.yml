@@ -263,15 +263,6 @@ paths:
                 - An unexpected error occured
 components:
   schemas:
-    Error:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: string
-          example:
-          - Record not found
     Tag:
       type: object
       required:
@@ -303,6 +294,15 @@ components:
           format: int32
           description: Timestamp when the Tag was last updated
           example: 1152230700
+    Error:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+          example:
+          - Record not found
   securitySchemes:
     BearerAuth:
       type: http
