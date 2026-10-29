@@ -64,6 +64,160 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-CompanyCam is a company surfaced as a portfolio company of insight-partners and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+CompanyCam is a photo-based job-site documentation platform for contractors and the trades — roofing, restoration, solar, home services and construction. Its mobile apps capture location- and time-stamped photos and videos that sync to a shared, project-organized workspace so crews, offices and clients stay aligned. The CompanyCam Core API (v2) is a REST API over projects, photos, videos, users, groups, tags, comments, documents, checklists and webhooks, secured with Bearer access tokens or OAuth 2.0 (authorization-code with PKCE and refresh tokens). It publishes an official OpenAPI 3.0 description, a Postman collection, granular per-resource OAuth scopes advertised via RFC 8414 metadata, HMAC-signed webhooks, and per-method rate limits. CompanyCam is backed by Insight Partners.
 
-Backed by: insight-partners — https://companycam.com/
+**Areas:** Company · Construction · Photos · Field Service Management · Project Management · Contractors · Documentation · Webhook
+
+## CompanyCam on APIs.io
+
+Everything profiled for CompanyCam is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/companycam/](https://apis.io/providers/companycam/)** — or go straight to one of the APIs or properties below.
+
+### APIs (10)
+
+- [CompanyCam Checklists API](https://apis.io/apis/companycam/companycam-checklists-api/) — The Checklists API from CompanyCam — 1 operation(s) for checklists.
+- [CompanyCam Company API](https://apis.io/apis/companycam/companycam-company-api/) — The Company API from CompanyCam — 1 operation(s) for company.
+- [CompanyCam Groups API](https://apis.io/apis/companycam/companycam-groups-api/) — The Groups API from CompanyCam — 2 operation(s) for groups.
+- [CompanyCam Photos API](https://apis.io/apis/companycam/companycam-photos-api/) — The Photos API from CompanyCam — 5 operation(s) for photos.
+- [CompanyCam Projects API](https://apis.io/apis/companycam/companycam-projects-api/) — The Projects API from CompanyCam — 17 operation(s) for projects.
+- [CompanyCam Tags API](https://apis.io/apis/companycam/companycam-tags-api/) — The Tags API from CompanyCam — 2 operation(s) for tags.
+- [CompanyCam Templates API](https://apis.io/apis/companycam/companycam-templates-api/) — The Templates API from CompanyCam — 1 operation(s) for templates.
+- [CompanyCam Users API](https://apis.io/apis/companycam/companycam-users-api/) — The Users API from CompanyCam — 3 operation(s) for users.
+- [CompanyCam Videos API](https://apis.io/apis/companycam/companycam-videos-api/) — The Videos API from CompanyCam — 2 operation(s) for videos.
+- [CompanyCam Webhooks API](https://apis.io/apis/companycam/companycam-webhooks-api/) — The Webhooks API from CompanyCam — 2 operation(s) for webhooks.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [Companycam Webhooks](https://apis.io/asyncapis/companycam/companycam-webhooks/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [companycam](https://apis.io/servers/companycam/companycam/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Companycam Agentic Access](https://apis.io/agentic-access/companycam/companycam-agentic-access/)
+
+#### Collections (11)
+
+Postman and Open Collection request collections.
+
+- [Core Checklists API](https://apis.io/collections/companycam/open-companycam-checklists-api/)
+- [Core Checklists Company API](https://apis.io/collections/companycam/open-companycam-company-api/)
+- [Core Checklists Groups API](https://apis.io/collections/companycam/open-companycam-groups-api/)
+- [Core Checklists Photos API](https://apis.io/collections/companycam/open-companycam-photos-api/)
+- [Core Checklists Projects API](https://apis.io/collections/companycam/open-companycam-projects-api/)
+- [Core Checklists Tags API](https://apis.io/collections/companycam/open-companycam-tags-api/)
+- [Core Checklists Templates API](https://apis.io/collections/companycam/open-companycam-templates-api/)
+- [Core Checklists Users API](https://apis.io/collections/companycam/open-companycam-users-api/)
+- [API Collection](https://apis.io/collections/companycam/open-companycam-v2/)
+- [Core Checklists Videos API](https://apis.io/collections/companycam/open-companycam-videos-api/)
+- [Core Checklists Webhooks API](https://apis.io/collections/companycam/open-companycam-webhooks-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Companycam Openapi Overlay](https://apis.io/overlays/companycam/companycam-openapi-overlay/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Companycam Authentication](https://apis.io/security/companycam/companycam-authentication/)
+- [Companycam Domain Security](https://apis.io/security/companycam/companycam-domain-security/)
+- [Companycam Vulnerability Disclosure](https://apis.io/security/companycam/companycam-vulnerability-disclosure/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Companycam Scopes](https://apis.io/scopes/companycam/companycam-scopes/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Companycam Rate Limits](https://apis.io/rate-limits/companycam/companycam-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://companycam.com/)
+- [Documentation](https://docs.companycam.com/)
+- [Getting started](https://docs.companycam.com/docs/getting-started)
+- [API reference](https://docs.companycam.com/reference)
+- [Pricing](https://companycam.com/pricing)
+- [Sign up](https://app.companycam.com/signup)
+- [Support](https://help.companycam.com)
+- [Changelog](https://companycam.readme.io/changelog)
+- [Blog](https://companycam.com/blog)
+- [Terms of service](https://companycam.com/terms)
+- [Privacy policy](https://companycam.com/privacy)
+- [GitHub](https://github.com/CompanyCam)
+- [Status](https://status.companycam.com)
+
+## API Evangelist rating
+
+**Kin Score 55.6** — strong · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 58.2 |
+| Contract governance | 18.2 |
+| Operational transparency | 76.3 |
+| Developer ergonomics | 48.2 |
+| Access clarity | 44.7 |
+
+**Agent readiness 40.9** — agent-ready (gated down from agent-native)
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | yes |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | paginated |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 40.2** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/companycam/](https://apis.io/providers/companycam/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for CompanyCam: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/companycam/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
